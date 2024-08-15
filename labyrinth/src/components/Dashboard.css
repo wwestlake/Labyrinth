@@ -1,0 +1,33 @@
+.dashboard-container {
+    display: flex;
+    height: 100vh; /* Full height of the viewport */
+  }
+  
+  .sidebar {
+    width: 250px; /* Fixed width of the sidebar */
+    background-color: #2d3748; /* Sidebar background color */
+  }
+  
+  .dashboard-content {
+    flex-grow: 1;
+    padding: 20px;
+    background-color: #1a202c;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch; /* Let the content stretch */
+    width: calc(100% - 250px); /* Explicitly calculate the remaining space */
+    max-width: 100%; /* Remove max-width constraints */
+}
+  
+  .carousel-container {
+    width: 100%; /* Take up the full width of the content area */
+    height: auto;
+    max-width: 1200px; /* Optional: cap the maximum width */
+  }
+  
+  .dashboard-content h2 {
+    margin-bottom: 20px;
+    text-align: center; /* Center the title */
+  }
+  

@@ -1,0 +1,127 @@
+/* src/components/OpeningPage.css */
+.opening-page {
+    background-color: #1a202c;
+    color: white;
+    min-height: 100vh;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .header {
+    background-color: #2d3748;
+    padding: 20px 0;
+    border-bottom: 2px solid #4a5568;
+  }
+  
+  .header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .logo {
+    height: 64px;
+  }
+  
+  .site-description {
+    max-width: 600px;
+    margin-left: 20px;
+  }
+  
+  .site-description h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .site-description p {
+    font-size: 1.125rem;
+    margin-top: 8px;
+    color: #e2e8f0;
+  }
+  
+  .sticky-buttons {
+    display: flex;
+    justify-content: center;
+    margin: 40px 0;
+  }
+  
+  .card {
+    background-color: #3182ce;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 250px;
+    margin: 0 10px;
+  }
+  
+  .card:hover {
+    background-color: #2b6cb0;
+  }
+  
+  .card h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .card p {
+    font-size: 1rem;
+    color: #e2e8f0;
+  }
+  
+  .expandable-section {
+    margin: 20px 0;
+    padding: 20px;
+    background-color: #2d3748;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .features {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+  }
+  
+  .features h2 {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #e2e8f0;
+  }
+  
+  .feature {
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+  }
+  
+  .feature img {
+    width: 300px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .feature-text {
+    margin-left: 20px;
+  }
+  
+  .feature-text h3 {
+    font-size: 1.75rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .feature-text p {
+    font-size: 1rem;
+    color: #cbd5e0;
+  }
+  
