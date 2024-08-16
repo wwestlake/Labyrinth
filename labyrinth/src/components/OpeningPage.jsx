@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import EmersiveGamePlay from '../assets/images/EmersiveGamePlay,.webp'
+import RealTimeCombat from '../assets/images/RealTimeCombat.webp'
+import EndlessExploration from '../assets/images/EndlessExploration.webp'
 import { useNavigate } from 'react-router-dom';
 import logo from '../assets/labyrinth-logo.webp';
 import './OpeningPage.css';
@@ -55,21 +58,21 @@ const OpeningPage = () => {
       <section className="features">
         <h2>Explore the Features</h2>
         <div className="feature">
-          <img src="https://via.placeholder.com/300" alt="Feature 1" />
+        <img src={EmersiveGamePlay} alt="Immersive Dungeon Gameplay" />
           <div className="feature-text">
             <h3>Immersive Gameplay</h3>
             <p>Experience a deeply immersive world where every choice matters.</p>
           </div>
         </div>
         <div className="feature">
-          <img src="https://via.placeholder.com/300" alt="Feature 2" />
+          <img src={RealTimeCombat} alt="Real Time Combat" />
           <div className="feature-text">
             <h3>Real-time Combat</h3>
             <p>Engage in thrilling real-time combat with enemies lurking in every corner.</p>
           </div>
         </div>
         <div className="feature">
-          <img src="https://via.placeholder.com/300" alt="Feature 3" />
+          <img src={EndlessExploration} alt="Endless Exploration" />
           <div className="feature-text">
             <h3>Endless Exploration</h3>
             <p>Uncover the secrets of the Labyrinth through endless exploration.</p>

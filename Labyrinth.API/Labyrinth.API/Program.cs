@@ -1,22 +1,34 @@
 using FirebaseAdmin;
 using Google.Apis.Auth.OAuth2;
 using Labyrinth.API.Common;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using System.Collections.Generic;
+using Labyrinth.API.Logging;
+using Labyrinth.API.Services;
+using Labyrinth.API.Utilities;
+using MongoDB.Driver;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Logging.ClearProviders();
+builder.Logging.AddConsole();
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowFrontend", builder =>
+    {
+        builder.WithOrigins("http://localhost:5173")
+               .AllowAnyMethod()
+               .AllowAnyHeader();
+    });
+});
 
 builder.Configuration.AddUserSecrets<Program>();
 
-builder.WebHost.ConfigureKestrel(serverOptions =>
-{
-    serverOptions.ListenAnyIP(7253, listenOptions =>
-    {
-        listenOptions.UseHttps(); // Will use the default dev certificate
-    });
-});
+//builder.WebHost.ConfigureKestrel(serverOptions =>
+//{
+//    serverOptions.ListenAnyIP(5232, listenOptions =>
+//    {
+//        listenOptions.UseHttps();
+//    });
+//});
 
 var serviceAccountKeyJson = builder.Configuration["Firebase:ServiceAccountKey"];
 FirebaseApp.Create(new AppOptions()
@@ -24,9 +36,24 @@ FirebaseApp.Create(new AppOptions()
     Credential = GoogleCredential.FromJson(serviceAccountKeyJson),
 });
 
+builder.Services.AddSingleton<IMongoClient, MongoClient>(sp =>
+{
+    var connectionString = builder.Configuration["MongoDB:ConnectionString"];
+    return new MongoClient(connectionString);
+});
+
+builder.Services.AddSingleton<ILoggerProvider, MongoDBLoggerProvider>(sp =>
+{
+    var mongoClient = sp.GetRequiredService<IMongoClient>();
+    var databaseName = builder.Configuration["MongoDB:DatabaseName"];
+    return new MongoDBLoggerProvider(mongoClient, databaseName, "Logs");
+});
+
+
 // Configure Services
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSingleton(typeof(IBenchmark<>), typeof(Benchmark<>));
 
 builder.Services.AddAuthorization(options =>
 {
@@ -46,7 +73,7 @@ builder.Services.AddSwaggerGen(c =>
     c.AddSecurityDefinition("Bearer", new Microsoft.OpenApi.Models.OpenApiSecurityScheme
     {
         In = Microsoft.OpenApi.Models.ParameterLocation.Header,
-        Description = "Please enter your token in the format 'Bearer {token}'",
+        Description = "JWT Authorization header using the Bearer scheme. Enter only the token here.",
         Name = "Authorization",
         Type = Microsoft.OpenApi.Models.SecuritySchemeType.ApiKey,
         BearerFormat = "JWT",
@@ -72,15 +99,10 @@ builder.Services.AddSwaggerGen(c =>
 });
 
 // Configure Logging
-builder.Logging.ClearProviders();
-builder.Logging.AddConsole();
-
-// Add In-Memory Database
-builder.Services.AddDbContext<LabyrinthDbContext>(options =>
-    options.UseInMemoryDatabase("MyInMemoryDb"));
 
 // Add custom services and any other dependencies
 builder.Services.AddScoped<ICharacterService, CharacterService>();
+builder.Services.AddScoped<IUserService, UserService>();
 
 // Build the app
 var app = builder.Build();
@@ -107,24 +129,23 @@ if (app.Environment.IsDevelopment())
 using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
-    var context = services.GetRequiredService<LabyrinthDbContext>();
-    SeedData(context);
 }
 
 
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection();
+
+app.UseCors("AllowFrontend");
 
 app.UseAuthorization();
 
 app.MapControllers();
 
+var logger = app.Services.GetRequiredService<ILogger<Program>>();
+logger.LogInformation("Application Started");
+
+
 app.Run();
 
-// Define the SeedData function
-void SeedData(LabyrinthDbContext context)
-{
-
-}
 
 
 public partial class Program { }

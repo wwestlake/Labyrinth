@@ -1,5 +1,8 @@
 # Labyrinth
 
+![Opening Page](assets/images/OpeningPage.png)
+
+
 **Labyrinth** is a web application project that integrates a React frontend with a .NET Core Web API backend. The application utilizes Firebase for authentication and authorization, supporting roles such as User, Moderator, Administrator, and Owner. This project is structured to be easily extendable and maintainable, leveraging modern web development practices.
 
 ## Features
