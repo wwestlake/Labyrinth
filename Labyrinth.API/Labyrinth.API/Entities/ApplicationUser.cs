@@ -10,7 +10,7 @@ namespace Labyrinth.API.Entities
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
-        public string Id { get; set; } // This will map to the MongoDB _id field
+        public string? Id { get; set; } // This will map to the MongoDB _id field
 
         [Key]
         public string UserId { get; set; }

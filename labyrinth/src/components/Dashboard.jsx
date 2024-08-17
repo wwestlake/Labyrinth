@@ -1,39 +1,37 @@
-import React, { useEffect, useState } from 'react';
-import CarouselComponent from './CarouselComponent';
-import CharacterSheet from './CharacterSheet';
-import Sidebar from './Sidebar';  // Ensure Sidebar is imported
-import './Dashboard.css';  // Assuming you have some styles for the dashboard layout
+import React from 'react';
+import { Container, Row, Col, Card } from 'react-bootstrap';
 
 const Dashboard = () => {
-  const [characters, setCharacters] = useState([]);
+  const cardData = [
+    { title: 'User Profile' },
+    { title: 'Characters' },
+    { title: 'Game Stats' },
+    { title: 'Top Players' },
+    { title: 'Notices' },
+    { title: 'Inbox' },
+    { title: 'Server Status' },
+    { title: 'Game Status' },
+    { title: 'General Information' },
+  ];
 
-  useEffect(() => {
-    // Fetch character data from your API or database
-    const fetchedCharacters = [
-      { name: 'Hero', level: 10, class: 'Warrior', health: 100 },
-      { name: 'Mage', level: 8, class: 'Wizard', health: 80 },
-      { name: 'Rogue', level: 7, class: 'Thief', health: 70 },
-      // Add more characters as needed
-    ];
-    setCharacters(fetchedCharacters);
-  }, []);
-
- return (
-  <div className="dashboard-container">
-    <Sidebar /> {/* Include Sidebar */}
-    <div className="dashboard-content">
-      <h2>Your Characters</h2>
-      <div className="carousel-container">
-        <CarouselComponent
-          items={characters.map((character, index) => (
-            <CharacterSheet key={index} character={character} />
-          ))}
-        />
-      </div>
-    </div>
-  </div>
-);
- 
+  return (
+    <Container fluid className="mt-3">
+      <Row className="g-1" style={{ marginLeft: '5px', marginRight: '5px' }}>
+        {cardData.map((card, index) => (
+          <Col key={index} xs={12} sm={6} md={4}>
+            <Card className="h-100" style={{ borderRadius: '10px', borderWidth: '1px', borderColor: '#ccc' }}>
+              <Card.Header className="bg-light" style={{ borderTopLeftRadius: '10px', borderTopRightRadius: '10px' }}>
+                <h5>{card.title}</h5>
+              </Card.Header>
+              <Card.Body className="bg-dark text-white" style={{ borderBottomLeftRadius: '10px', borderBottomRightRadius: '10px' }}>
+                <p>Content for {card.title}...</p>
+              </Card.Body>
+            </Card>
+          </Col>
+        ))}
+      </Row>
+    </Container>
+  );
 };
 
 export default Dashboard;

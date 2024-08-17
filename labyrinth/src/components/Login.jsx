@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../firebase-config';
 import './Signup.css'; // Reuse the same styles for consistency
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -14,12 +14,16 @@ const Login = () => {
     e.preventDefault();
     try {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      
+      // Get the JWT token from Firebase
+      const token = await userCredential.user.getIdToken();
+      console.log("Firebase Token:", token);
 
-      // Fetch the user from the Labyrinth API
-      const response = await fetch(`http://localhost:5232/api/User/${userCredential.user.uid}`, {
+      // Fetch the current user's information from the Labyrinth API
+      const response = await fetch('http://localhost:5232/api/User/me', {
         method: 'GET',
         headers: {
-          Authorization: `Bearer ${await userCredential.user.getIdToken()}`
+          Authorization: `Bearer ${token}`
         }
       });
 
@@ -31,8 +35,9 @@ const Login = () => {
       console.log('User fetched from API:', user);
 
       setErrorMessage(""); // Clear any previous error message
-      navigate('/dashboard'); // Redirect to the Dashboard page after successful login
+      navigate('/game-console'); // Redirect to GameConsole after successful login
     } catch (error) {
+      console.error("Error during login:", error);
       setErrorMessage(error.message);
     }
   };

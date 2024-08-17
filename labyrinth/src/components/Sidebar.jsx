@@ -1,16 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { signOut } from 'firebase/auth';
 import { auth } from '../firebase-config';
-import './Sidebar.css'; // We'll add styles here
+import './Sidebar.css';
 
-const Sidebar = () => {
-  const [isCollapsed, setIsCollapsed] = useState(true);
+const Sidebar = ({ isCollapsed, toggleSidebar }) => {
   const navigate = useNavigate();
-
-  const toggleSidebar = () => {
-    setIsCollapsed(!isCollapsed);
-  };
 
   const handleLogout = async () => {
     await signOut(auth);
@@ -23,14 +18,17 @@ const Sidebar = () => {
         <span className="hamburger-icon">&#9776;</span>
       </div>
       <div className="menu-items">
-        <div className="menu-item" onClick={() => navigate('/dashboard')}>
+        <div className="menu-item" onClick={() => navigate('/game-console/dashboard')}>
           <span className="icon">🏠</span>
-          {isCollapsed && <span className="text">Dashboard</span>}
+          {!isCollapsed && <span className="text">Dashboard</span>}
         </div>
-        {/* Add more menu items here */}
+        <div className="menu-item" onClick={() => navigate('/game-console/current-room')}>
+          <span className="icon">🗺️</span>
+          {!isCollapsed && <span className="text">Current Room</span>}
+        </div>
         <div className="menu-item" onClick={handleLogout}>
           <span className="icon">🚪</span>
-          {isCollapsed && <span className="text">Log Out</span>}
+          {!isCollapsed && <span className="text">Log Out</span>}
         </div>
       </div>
     </div>
