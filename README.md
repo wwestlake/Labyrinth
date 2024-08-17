@@ -73,6 +73,70 @@ Swagger UI: To test API endpoints, access the Swagger UI at https://localhost:72
 Contributing
 Contributions are welcome! Please feel free to submit a Pull Request.
 
+## Contributing
+
+Contributions are welcome! Please follow the steps below to clone the repository, make changes, and submit a pull request (PR) for review.
+
+### Cloning the Repository
+
+1. **Fork the Repository:**
+   
+   Go to the GitHub repository page and click the "Fork" button to create a copy of the repository under your own GitHub account.
+
+2. **Clone the Forked Repository:**
+
+   Clone the forked repository to your local machine using the following command:
+
+   ```bash
+   git clone https://github.com/YOUR-USERNAME/Labyrinth.git
+   cd Labyrinth
+1. Making Changes
+Create a New Branch:
+
+Before making any changes, create a new branch to work on:
+
+```
+Copy code
+git checkout -b feature/your-feature-name
+Make Your Changes:
+```
+
+1. Make the necessary changes to the codebase.
+
+Commit Your Changes:
+
+After making changes, commit them to your branch:
+
+```
+Copy code
+git add .
+git commit -m "Description of the changes made"
+Push the Changes to Your Fork:
+``` 
+
+1. Push your changes to your forked repository on GitHub:
+
+
+```
+git push origin feature/your-feature-name
+Submitting a Pull Request
+Create a Pull Request:
+```
+
+Go to your forked repository on GitHub and click the "Compare & pull request" button. This will start the process of submitting a pull request to the original repository.
+
+1. Describe Your Changes:
+
+Provide a clear and concise description of your changes in the PR description. Include any relevant issue numbers if applicable.
+
+1. Submit the Pull Request:
+
+Submit the pull request for review.
+
+Review Process
+Once you have submitted your PR, it will be reviewed. You may receive feedback or requests for changes. Once the PR is approved, it will be merged into the main repository.
+
+
 License
 This project is licensed under the MIT License. See the LICENSE file for more details.
 
