@@ -96,7 +96,6 @@ Create a New Branch:
 Before making any changes, create a new branch to work on:
 
 ```
-Copy code
 git checkout -b feature/your-feature-name
 Make Your Changes:
 ```
@@ -108,7 +107,6 @@ Commit Your Changes:
 After making changes, commit them to your branch:
 
 ```
-Copy code
 git add .
 git commit -m "Description of the changes made"
 Push the Changes to Your Fork:
