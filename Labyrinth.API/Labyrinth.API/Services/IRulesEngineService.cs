@@ -2,10 +2,9 @@
 using Labyrinth.API.Entities;
 using Labyrinth.Common;
 
-namespace Labyrinth.API.Services
+namespace Labyrinth.API.Services;
+
+public interface IRulesEngineService
 {
-    public interface IRulesEngineService
-    {
-        Result<CommandAst> EvaluateRules(CommandAst command, ApplicationUser user);
-    }
+    Result<CommandAst> EvaluateRules(CommandAst command, ApplicationUser user);
 }

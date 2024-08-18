@@ -1,3 +1,4 @@
+namespace Labyrinth.API.Services;
 
 public class CharacterService : ICharacterService
 {

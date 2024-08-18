@@ -2,10 +2,9 @@
 using Labyrinth.Common;
 using System;
 
-namespace Labyrinth.API.Services
+namespace Labyrinth.API.Services;
+
+public interface ICommandCompilerService
 {
-    public interface ICommandCompilerService
-    {
-        Result<CommandAst> CompileCommand(string input);
-    }
+    Result<CommandAst> CompileCommand(string input);
 }

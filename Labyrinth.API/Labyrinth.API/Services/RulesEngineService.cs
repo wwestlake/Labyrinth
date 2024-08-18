@@ -4,41 +4,40 @@ using Labyrinth.API.Entities;
 using Microsoft.Extensions.Logging;
 using RulesEngine.Models;
 
-namespace Labyrinth.API.Services
+namespace Labyrinth.API.Services;
+
+public class RulesEngineService : IRulesEngineService
 {
-    public class RulesEngineService : IRulesEngineService
+    private readonly RulesEngine.RulesEngine _rulesEngine;
+    private readonly ILogger<RulesEngineService> _logger;
+
+    public RulesEngineService(RulesEngine.RulesEngine rulesEngine, ILogger<RulesEngineService> logger)
     {
-        private readonly RulesEngine.RulesEngine _rulesEngine;
-        private readonly ILogger<RulesEngineService> _logger;
+        _rulesEngine = rulesEngine;
+        _logger = logger;
+    }
 
-        public RulesEngineService(RulesEngine.RulesEngine rulesEngine, ILogger<RulesEngineService> logger)
+    public Result<CommandAst> EvaluateRules(CommandAst command, ApplicationUser user)
+    {
+        _logger.LogInformation("Evaluating command against rules...");
+
+        var inputs = new[]
         {
-            _rulesEngine = rulesEngine;
-            _logger = logger;
-        }
+            new RuleParameter("command", command),
+            new RuleParameter("user", user)
+        };
 
-        public Result<CommandAst> EvaluateRules(CommandAst command, ApplicationUser user)
+        var ruleResults = _rulesEngine.ExecuteAllRulesAsync("CommandRules", inputs).Result;
+
+        foreach (var result in ruleResults)
         {
-            _logger.LogInformation("Evaluating command against rules...");
-
-            var inputs = new[]
+            if (!result.IsSuccess)
             {
-                new RuleParameter("command", command),
-                new RuleParameter("user", user)
-            };
-
-            var ruleResults = _rulesEngine.ExecuteAllRulesAsync("CommandRules", inputs).Result;
-
-            foreach (var result in ruleResults)
-            {
-                if (!result.IsSuccess)
-                {
-                    _logger.LogWarning($"Rule {result.Rule.RuleName} failed: {result.ExceptionMessage}");
-                    return Result.Fail(result.ExceptionMessage);
-                }
+                _logger.LogWarning($"Rule {result.Rule.RuleName} failed: {result.ExceptionMessage}");
+                return Result.Fail(result.ExceptionMessage);
             }
-
-            return Result.Ok(command);
         }
+
+        return Result.Ok(command);
     }
 }

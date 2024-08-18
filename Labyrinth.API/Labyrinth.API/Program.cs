@@ -2,6 +2,7 @@ using FirebaseAdmin;
 using FluentResults;
 using Google.Apis.Auth.OAuth2;
 using Labyrinth.API.Common;
+using Labyrinth.API.Entities.Rules;
 using Labyrinth.API.Logging;
 using Labyrinth.API.Services;
 using Labyrinth.API.Utilities;
@@ -10,6 +11,7 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using MongoDB.Driver;
+using System.Text.Json;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -170,13 +172,11 @@ builder.Services.AddSingleton<Func<string, FluentResults.Result<CommandAst>>>(sp
 });
 builder.Services.AddScoped<ICharacterService, CharacterService>();
 builder.Services.AddScoped<IUserService, UserService>();
-
 builder.Services.AddSingleton<Func<string, Result<CommandAst>>>(sp =>
 {
     // Assuming that LabLang.LabLang.compileCommand is the F# function
     return LabLang.LabLang.compileCommand;
 });
-
 builder.Services.AddScoped<ICommandCompilerService, CommandCompilerService>();
 builder.Services.AddSingleton<IClaimsTransformation>(sp =>
 {
@@ -186,6 +186,12 @@ builder.Services.AddSingleton<IClaimsTransformation>(sp =>
 
     return new ClaimsTransformer(mongoClient, databaseName, usersCollectionName);
 });
+builder.Services.AddScoped<ICommandProcessor, CommandProcessor>();
+
+var rulesFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "config", "rules.json");
+var jsonString = File.ReadAllText(rulesFilePath);
+var rules = JsonSerializer.Deserialize<Dictionary<string, List<Rule>>>(jsonString);
+
 
 // 9. Application Build and Pipeline Configuration
 var app = builder.Build();
