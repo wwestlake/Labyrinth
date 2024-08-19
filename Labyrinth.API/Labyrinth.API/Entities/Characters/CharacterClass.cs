@@ -12,6 +12,7 @@
         Necromancer,
         Monk,
         Druid,
+        Thief
         // Add more classes as needed
     }
 }

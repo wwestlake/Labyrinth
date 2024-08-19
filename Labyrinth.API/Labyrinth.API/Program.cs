@@ -5,13 +5,18 @@ using Labyrinth.API.Common;
 using Labyrinth.API.Entities.Rules;
 using Labyrinth.API.Logging;
 using Labyrinth.API.Services;
-using Labyrinth.API.Utilities;
 using Labyrinth.Common;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using MongoDB.Driver;
 using System.Text.Json;
+using RulesEngine.Models;
+using RulesEngine;
+using Labyrinth.Communication.Chat;
+using System.Text.Json.Serialization;
+
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -31,9 +36,10 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowFrontend", builder =>
     {
-        builder.WithOrigins("http://localhost:5173")
+        builder.WithOrigins("http://localhost:5173", "http://localhost:5174")
                .AllowAnyMethod()
-               .AllowAnyHeader();
+               .AllowAnyHeader()
+               .AllowCredentials();
     });
 });
 
@@ -188,9 +194,27 @@ builder.Services.AddSingleton<IClaimsTransformation>(sp =>
 });
 builder.Services.AddScoped<ICommandProcessor, CommandProcessor>();
 
+builder.Services.AddSignalR();
+builder.Services.AddSingleton<IChatService, ChatService>();
+builder.Services.AddScoped<ICommandProcessor, CommandProcessor>(); 
+builder.Services.AddScoped<IRulesEngineService, RulesEngineService>();
+
 var rulesFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "config", "rules.json");
 var jsonString = File.ReadAllText(rulesFilePath);
-var rules = JsonSerializer.Deserialize<Dictionary<string, List<Rule>>>(jsonString);
+
+var jsonConvertOptions = new JsonSerializerOptions
+{
+    Converters = { new JsonStringEnumConverter() }
+};
+
+// Deserialize the JSON into a list of Workflow objects
+var workflows = JsonSerializer.Deserialize<List<Workflow>>(jsonString, jsonConvertOptions);
+
+// Initialize the RulesEngine with the workflows
+var rulesEngine = new RulesEngine.RulesEngine(workflows.ToArray());
+
+// Register RulesEngine in the DI container
+builder.Services.AddSingleton(rulesEngine);
 
 
 // 9. Application Build and Pipeline Configuration
@@ -215,8 +239,14 @@ if (app.Environment.IsDevelopment())
     });
 }
 
+app.UseRouting();
 app.UseCors("AllowFrontend");
 app.UseAuthorization();
+app.UseEndpoints(endpoints =>
+{
+    _ = endpoints.MapControllers();
+    _ = endpoints.MapHub<ChatHub>("/chat");
+});
 app.MapControllers();
 
 var logger = app.Services.GetRequiredService<ILogger<Program>>();

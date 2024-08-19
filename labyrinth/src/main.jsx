@@ -10,7 +10,7 @@ import GameConsole from './components/GameConsole';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Dashboard from './components/Dashboard';
 import Room from './components/Room';
-
+import ChatBox from './components/ChatBox';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -26,6 +26,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         }> 
           <Route path="dashboard" element={<Dashboard />} />
           <Route path="current-room" element={<Room />} />
+          <Route path="chat" element={<ChatBox />} />
         </Route>
       </Routes>
     </Router>

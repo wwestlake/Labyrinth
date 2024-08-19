@@ -18,10 +18,8 @@ namespace Labyrinth.API.Entities.Characters
         private Result DefaultAttack(Character target)
         {
             // Implement NPC-specific attack logic
-            int damage = this.Strength; // Simplified example
-            target.Health -= damage;
 
-            return Result.Ok().WithSuccess($"NPC {Name} attacked {target.Name} for {damage} damage.");
+            return Result.Ok().WithSuccess($"NPC {Name} attacked {target.Name} for dddd damage.");
         }
 
         // Default defend behavior for NPCs

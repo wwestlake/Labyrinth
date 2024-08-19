@@ -1,5 +1,16 @@
-{
-  "rules": [
+[
+  {
+    "WorkflowName": "CommandRules",
+    "Rules": [
+      {
+        "RuleName": "CanGoInDirection",
+        "SuccessEvent": "MoveAllowed",
+        "ErrorMessage": "There is no exit in that direction.",
+        "ErrorType": "Error",
+        "RuleExpressionType": "LambdaExpression",
+        "Expression": "userContext.CurrentRoom.HasExit(command.Direction)"
+      }
+    ]
+  }
+]
 
-  ]
-}

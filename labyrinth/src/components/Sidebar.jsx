@@ -26,6 +26,10 @@ const Sidebar = ({ isCollapsed, toggleSidebar }) => {
           <span className="icon">🗺️</span>
           {!isCollapsed && <span className="text">Current Room</span>}
         </div>
+        <div className="menu-item" onClick={() => navigate('/game-console/chat')}>
+          <span className="icon">💬</span>
+          {!isCollapsed && <span className="text">Chat</span>}
+        </div>
         <div className="menu-item" onClick={handleLogout}>
           <span className="icon">🚪</span>
           {!isCollapsed && <span className="text">Log Out</span>}
