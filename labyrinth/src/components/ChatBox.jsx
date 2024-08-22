@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { HubConnectionBuilder } from '@microsoft/signalr';
+import { HubConnectionBuilder, LogLevel } from '@microsoft/signalr';
 import { auth } from '../firebase-config'; // Adjust the import path as needed
 import './ChatBox.css';
 
@@ -22,11 +22,20 @@ const ChatBox = () => {
               accessTokenFactory: () => token,
               withCredentials: true,
             })
+            .configureLogging(LogLevel.Information)
             .withAutomaticReconnect()
             .build();
 
           newConnection.on("ReceiveMessage", (user, message) => {
             setMessages(messages => [...messages, { user, text: message, channel: currentChannel, timestamp: new Date().toLocaleTimeString() }]);
+          });
+
+          newConnection.onreconnected(() => {
+            console.log("Reconnected to the SignalR hub");
+          });
+
+          newConnection.onclose(() => {
+            console.log("Connection closed");
           });
 
           await newConnection.start();
@@ -60,6 +69,8 @@ const ChatBox = () => {
       }
     } else {
       console.error("No connection to server yet.");
+      // Retry sending the message after a brief delay
+      setTimeout(() => handleSendMessage(), 500);
     }
   };
 

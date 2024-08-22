@@ -194,7 +194,10 @@ builder.Services.AddSingleton<IClaimsTransformation>(sp =>
 });
 builder.Services.AddScoped<ICommandProcessor, CommandProcessor>();
 
-builder.Services.AddSignalR();
+builder.Services.AddSignalR(hubOptions => {
+    hubOptions.EnableDetailedErrors = true;
+    hubOptions.KeepAliveInterval = TimeSpan.FromSeconds(10);
+});
 builder.Services.AddSingleton<IChatService, ChatService>();
 builder.Services.AddScoped<ICommandProcessor, CommandProcessor>(); 
 builder.Services.AddScoped<IRulesEngineService, RulesEngineService>();
