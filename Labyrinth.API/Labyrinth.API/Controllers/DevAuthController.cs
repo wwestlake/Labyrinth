@@ -1,9 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration;
-using FirebaseAdmin.Auth;
-using System.Threading.Tasks;
-using System.Collections.Generic;
+﻿using FirebaseAdmin.Auth;
 using Labyrinth.API.Logging;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Labyrinth.API.Controllers
 {

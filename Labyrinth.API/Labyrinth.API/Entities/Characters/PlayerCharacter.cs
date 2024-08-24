@@ -4,7 +4,6 @@ namespace Labyrinth.API.Entities.Characters
 {
     public class PlayerCharacter : Character
     {
-        public CharacterClass CharacterClass { get; set; }  // Character's class (e.g., Warrior, Mage)
         public string UserId { get; set; }  // ID of the user who owns this character
 
         public PlayerCharacter()

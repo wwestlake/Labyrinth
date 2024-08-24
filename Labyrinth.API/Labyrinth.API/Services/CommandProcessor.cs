@@ -1,7 +1,6 @@
 ﻿using FluentResults;
-using Microsoft.Extensions.Logging;
-using Labyrinth.Common;
 using Labyrinth.API.Entities;
+using Labyrinth.Common;
 
 namespace Labyrinth.API.Services;
 

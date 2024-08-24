@@ -1,5 +1,4 @@
 ﻿using Labyrinth.API.Entities.Characters;
-using System.Collections.Generic;
 
 namespace Labyrinth.API.Utilities
 {

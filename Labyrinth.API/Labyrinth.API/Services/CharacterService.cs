@@ -1,9 +1,7 @@
-using MongoDB.Driver;
+using FluentResults;
 using Labyrinth.API.Entities.Characters;
 using Labyrinth.API.Utilities;
-using FluentResults;
-using System.Collections.Generic;
-using System.Threading.Tasks;
+using MongoDB.Driver;
 
 namespace Labyrinth.API.Services
 {

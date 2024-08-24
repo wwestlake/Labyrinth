@@ -1,7 +1,7 @@
 ﻿using FirebaseAdmin.Auth;
-using MongoDB.Driver;
 using Labyrinth.API.Common;
 using Labyrinth.API.Entities;
+using MongoDB.Driver;
 
 namespace Labyrinth.API.Services;
 
@@ -19,10 +19,12 @@ public class UserService : IUserService
     public async Task<ApplicationUser> GetUserByUidAsync(string uid)
     {
         var filter = Builders<ApplicationUser>.Filter.Eq(u => u.UserId, uid);
-        try { 
+        try
+        {
             var result = await _usersCollection.Find(filter).FirstOrDefaultAsync();
             return result;
-        } catch (Exception ex)
+        }
+        catch (Exception ex)
         {
             throw;
         }

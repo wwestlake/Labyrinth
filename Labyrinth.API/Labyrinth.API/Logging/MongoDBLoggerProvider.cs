@@ -1,6 +1,4 @@
-﻿using Microsoft.Extensions.Logging;
-using MongoDB.Driver;
-using System;
+﻿using MongoDB.Driver;
 
 namespace Labyrinth.API.Logging
 {
@@ -24,5 +22,5 @@ namespace Labyrinth.API.Logging
             // Dispose of any resources if necessary
         }
     }
-    
+
 }

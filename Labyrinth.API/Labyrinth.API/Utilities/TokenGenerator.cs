@@ -1,5 +1,4 @@
 ﻿using FirebaseAdmin.Auth;
-using System.Threading.Tasks;
 
 namespace Labyrinth.API.Utilities;
 

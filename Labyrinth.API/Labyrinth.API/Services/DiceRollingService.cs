@@ -1,5 +1,4 @@
 ﻿using FluentResults;
-using System;
 
 namespace Labyrinth.API.Services;
 

@@ -1,7 +1,6 @@
 ﻿using FluentResults;
-using Labyrinth.Common;
 using Labyrinth.API.Entities;
-using Microsoft.Extensions.Logging;
+using Labyrinth.Common;
 using RulesEngine.Models;
 
 namespace Labyrinth.API.Services;

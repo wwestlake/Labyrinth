@@ -1,8 +1,7 @@
-﻿using System.Security.Claims;
-using System.Threading.Tasks;
-using Labyrinth.API.Entities;
+﻿using Labyrinth.API.Entities;
 using Microsoft.AspNetCore.Authentication;
 using MongoDB.Driver;
+using System.Security.Claims;
 
 namespace Labyrinth.API.Services;
 

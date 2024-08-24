@@ -1,8 +1,6 @@
-﻿using MongoDB.Bson;
+﻿using Labyrinth.API.Entities.Items;
+using MongoDB.Bson;
 using MongoDB.Driver;
-using Labyrinth.API.Entities.Items;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace Labyrinth.API.Services;
 

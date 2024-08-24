@@ -2,18 +2,16 @@ using FirebaseAdmin;
 using FluentResults;
 using Google.Apis.Auth.OAuth2;
 using Labyrinth.API.Common;
-using Labyrinth.API.Entities.Rules;
 using Labyrinth.API.Logging;
 using Labyrinth.API.Services;
 using Labyrinth.Common;
+using Labyrinth.Communication.Chat;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using MongoDB.Driver;
-using System.Text.Json;
 using RulesEngine.Models;
-using RulesEngine;
-using Labyrinth.Communication.Chat;
+using System.Text.Json;
 using System.Text.Json.Serialization;
 
 
@@ -125,6 +123,14 @@ builder.Services.AddSingleton<IMongoClient, MongoClient>(sp =>
     return new MongoClient(connectionString);
 });
 
+builder.Services.AddSingleton<IMongoDatabase>(serviceProvider =>
+{
+    var client = serviceProvider.GetRequiredService<IMongoClient>();
+    var configuration = serviceProvider.GetRequiredService<IConfiguration>();
+    var databaseName = configuration.GetValue<string>("LabyrinthDbName"); // Assumes you store the database name in your config
+    return client.GetDatabase(databaseName);
+});
+
 // 7. Swagger Configuration
 builder.Services.AddSwaggerGen(c =>
 {
@@ -194,12 +200,13 @@ builder.Services.AddSingleton<IClaimsTransformation>(sp =>
 });
 builder.Services.AddScoped<ICommandProcessor, CommandProcessor>();
 
-builder.Services.AddSignalR(hubOptions => {
+builder.Services.AddSignalR(hubOptions =>
+{
     hubOptions.EnableDetailedErrors = true;
     hubOptions.KeepAliveInterval = TimeSpan.FromSeconds(10);
 });
 builder.Services.AddSingleton<IChatService, ChatService>();
-builder.Services.AddScoped<ICommandProcessor, CommandProcessor>(); 
+builder.Services.AddScoped<ICommandProcessor, CommandProcessor>();
 builder.Services.AddScoped<IRulesEngineService, RulesEngineService>();
 
 var rulesFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "config", "rules.json");

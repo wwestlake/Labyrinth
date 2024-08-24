@@ -1,6 +1,4 @@
-﻿using MongoDB.Bson;
-
-namespace Labyrinth.API.Entities.Rules
+﻿namespace Labyrinth.API.Entities.Rules
 {
     public class Rule
     {

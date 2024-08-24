@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Labyrinth.API.Logging
+﻿namespace Labyrinth.API.Logging
 {
     public class BenchmarkData
     {

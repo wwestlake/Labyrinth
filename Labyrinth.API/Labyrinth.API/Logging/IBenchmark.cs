@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using Microsoft.Extensions.Logging;
-
-namespace Labyrinth.API.Logging;
+﻿namespace Labyrinth.API.Logging;
 
 public interface IBenchmark<T>
 {

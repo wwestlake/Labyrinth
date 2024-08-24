@@ -1,7 +1,5 @@
-using Labyrinth.API.Entities.Characters;
 using FluentResults;
-using System.Collections.Generic;
-using System.Threading.Tasks;
+using Labyrinth.API.Entities.Characters;
 
 namespace Labyrinth.API.Services
 {

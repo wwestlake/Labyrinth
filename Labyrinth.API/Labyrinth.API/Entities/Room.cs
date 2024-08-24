@@ -1,9 +1,9 @@
 ﻿namespace Labyrinth.API.Entities;
 
-using System.Collections.Generic;
 using Labyrinth.API.Entities.Items;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
+using System.Collections.Generic;
 
 public class Room
 {

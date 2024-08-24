@@ -1,12 +1,11 @@
-﻿using Labyrinth.API.Entities.Characters;
+﻿using Labyrinth.API.Common;
+using Labyrinth.API.Dto;
+using Labyrinth.API.Entities.Characters;
 using Labyrinth.API.Services;
+using Labyrinth.API.Utilities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using FluentResults;
 using System.Security.Claims;
-using Labyrinth.API.Common;
-using Labyrinth.API.Utilities;
-using Labyrinth.API.Dto;
 
 namespace Labyrinth.API.Controllers
 {

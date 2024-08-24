@@ -1,11 +1,11 @@
-﻿using MongoDB.Bson.Serialization.Attributes;
+﻿using FluentResults;
 using MongoDB.Bson;
-using FluentResults;
+using MongoDB.Bson.Serialization.Attributes;
 using System.Text.Json.Serialization;
 
 namespace Labyrinth.API.Entities.Characters
 {
-    public abstract class Character
+    public class Character
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
@@ -13,6 +13,7 @@ namespace Labyrinth.API.Entities.Characters
 
         [BsonRepresentation(BsonType.ObjectId)]
         public string Owner { get; set; }
+        public CharacterClass CharacterClass { get; set; }  // Character's class (e.g., Warrior, Mage)
 
         public string Name { get; set; }  // Character's name
         public string Description { get; set; } // description or BIO of the character

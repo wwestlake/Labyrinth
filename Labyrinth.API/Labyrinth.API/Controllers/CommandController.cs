@@ -1,10 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Labyrinth.Common;
-using Labyrinth.API.Services;
-using FluentResults;
-using Microsoft.AspNetCore.Authorization;
+﻿using Labyrinth.API.Common;
 using Labyrinth.API.Entities;
-using Labyrinth.API.Common;
+using Labyrinth.API.Services;
+using Labyrinth.Common;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Labyrinth.API.Controllers
 {

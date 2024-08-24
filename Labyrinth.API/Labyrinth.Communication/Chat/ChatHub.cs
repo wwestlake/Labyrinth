@@ -1,6 +1,4 @@
 ﻿using Microsoft.AspNetCore.SignalR;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace Labyrinth.Communication.Chat
 {

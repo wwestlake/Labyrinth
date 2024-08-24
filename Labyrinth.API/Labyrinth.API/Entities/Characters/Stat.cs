@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Labyrinth.API.Entities.Characters
+﻿namespace Labyrinth.API.Entities.Characters
 {
     public class Stat
     {
