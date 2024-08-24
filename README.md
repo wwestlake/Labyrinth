@@ -76,6 +76,7 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 ## Contributing
 
 Contributions are welcome! Please follow the steps below to clone the repository, make changes, and submit a pull request (PR) for review.
+Also, [be sure to visit the wiki with loads of technical documents](https://github.com/wwestlake/Labyrinth/wiki). 
 
 ### Cloning the Repository
 
