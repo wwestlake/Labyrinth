@@ -1,0 +1,118 @@
+[
+  {
+    "roomName": "Secret Garden",
+    "description": "An overgrown garden hidden behind a large stone wall, full of vibrant, rare plants and flowers.",
+    "hasHiddenPassage": "true",
+    "revealPassageHint": "Look closely at the ivy on the north wall; it seems to be hiding something.",
+    "hasSpecialFeature": "true",
+    "specialFeatureDescription": "A magical fountain that restores health when drank from.",
+    "containsPuzzle": "false",
+    "puzzleHint": "",
+    "items": [
+      {
+        "name": "Mystic Herb",
+        "description": "A rare herb with healing properties."
+      },
+      {
+        "name": "Ancient Key",
+        "description": "A rusted key, perhaps it opens a nearby gate."
+      }
+    ],
+    "exits": [
+      {
+        "direction": "East",
+        "destination": "Old Gate"
+      },
+      {
+        "direction": "West",
+        "destination": "Winding Path"
+      }
+    ]
+  },
+  {
+    "roomName": "Hidden Workshop",
+    "description": "An old workshop filled with strange tools and half-finished contraptions. Dust covers every surface.",
+    "hasHiddenPassage": "false",
+    "revealPassageHint": "",
+    "hasSpecialFeature": "true",
+    "specialFeatureDescription": "A workbench that can be used to craft unique items.",
+    "containsPuzzle": "true",
+    "puzzleHint": "There is a strange device on the wall with four rotating dials; perhaps aligning them correctly will reveal something.",
+    "items": [
+      {
+        "name": "Old Hammer",
+        "description": "A well-used hammer, slightly worn but still functional."
+      },
+      {
+        "name": "Gear Assembly",
+        "description": "An intricate set of gears, part of a larger machine."
+      }
+    ],
+    "exits": [
+      {
+        "direction": "North",
+        "destination": "Hidden Passage"
+      },
+      {
+        "direction": "South",
+        "destination": "Abandoned Mine"
+      }
+    ]
+  },
+  {
+    "roomName": "Chamber of Whispers",
+    "description": "A dark, circular room where whispers echo from every corner. The air feels thick with secrets.",
+    "hasHiddenPassage": "true",
+    "revealPassageHint": "Listen closely to the whispers; one voice seems to guide you toward the eastern wall.",
+    "hasSpecialFeature": "false",
+    "specialFeatureDescription": "",
+    "containsPuzzle": "true",
+    "puzzleHint": "A series of symbols on the floor must be pressed in a specific order to unlock the exit.",
+    "items": [
+      {
+        "name": "Whispering Stone",
+        "description": "A small stone that hums softly when held."
+      }
+    ],
+    "exits": [
+      {
+        "direction": "East",
+        "destination": "Hall of Secrets"
+      },
+      {
+        "direction": "West",
+        "destination": "Mirror Maze"
+      }
+    ]
+  },
+  {
+    "roomName": "Enchanted Armory",
+    "description": "Glittering suits of armor line the walls, their polished surfaces reflecting your every move.",
+    "hasHiddenPassage": "false",
+    "revealPassageHint": "",
+    "hasSpecialFeature": "true",
+    "specialFeatureDescription": "An enchanted forge that can imbue weapons with magical properties.",
+    "containsPuzzle": "true",
+    "puzzleHint": "A riddle inscribed on a plaque above the forge must be solved to activate it: 'I speak without a mouth and hear without ears. I have no body, but I come alive with wind.'",
+    "items": [
+      {
+        "name": "Enchanted Sword",
+        "description": "A finely crafted sword with a faint, magical glow."
+      },
+      {
+        "name": "Mystic Shield",
+        "description": "A shield that feels warm to the touch, offering strong protection."
+      }
+    ],
+    "exits": [
+      {
+        "direction": "North",
+        "destination": "Battlefield"
+      },
+      {
+        "direction": "South",
+        "destination": "Castle Corridor"
+      }
+    ]
+  }
+]

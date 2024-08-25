@@ -1,0 +1,29 @@
+﻿{{roomName}}
+
+{{description}}
+
+{{#if hasHiddenPassage}}
+There seems to be a hidden passage here. {{revealPassageHint}}
+{{else}}
+The room appears normal, but you sense something is amiss.
+{{/if}}
+
+{{#if hasSpecialFeature}}
+This room has a special feature: {{specialFeatureDescription}}.
+{{/if}}
+
+{{#if containsPuzzle}}
+A strange puzzle catches your eye. {{puzzleHint}}
+{{else}}
+There is no visible puzzle in this room.
+{{/if}}
+
+Items of interest:
+{{#each items}}
+- {{name}}: {{description}}
+{{/each}}
+
+Exits:
+{{#each exits}}
+- {{direction}}: {{destination}}
+{{/each}}

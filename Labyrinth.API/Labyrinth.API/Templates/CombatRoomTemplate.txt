@@ -1,0 +1,30 @@
+﻿{{roomName}}
+
+{{description}}
+
+{{#if hasEnemies}}
+You are not alone here. Prepare to face the following enemies:
+{{#each enemies}}
+- {{name}} (Level: {{level}}) - {{description}}
+{{/each}}
+{{else}}
+The room is eerily quiet, but stay alert; danger may still lurk in the shadows.
+{{/if}}
+
+{{#if hasTraps}}
+You notice signs of traps in the area. Be cautious:
+{{#each traps}}
+- {{trapType}}: {{trapDescription}}
+{{/each}}
+{{/if}}
+
+{{#if canEscape}}
+You see a possible escape route: {{escapeRoute}}. You might be able to flee if things go badly.
+{{else}}
+There is no way out; you must stand and fight.
+{{/if}}
+
+Available Exits:
+{{#each exits}}
+- {{direction}}: {{destination}}
+{{/each}}

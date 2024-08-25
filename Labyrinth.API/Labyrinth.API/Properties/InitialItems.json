@@ -1,0 +1,196 @@
+[
+  {
+    "_id": { "$oid": "64e4a2a299b2b59e9f2a1e11" },
+    "type": "Weapon",
+    "name": "Long Sword",
+    "description": "A sturdy steel sword ideal for melee combat.",
+    "damage": 15,
+    "range": "Melee",
+    "durability": 100,
+    "criticalChance": 0.1,
+    "speed": "Medium"
+  },
+  {
+    "_id": { "$oid": "64e4a2a299b2b59e9f2a1e12" },
+    "type": "Armor",
+    "name": "Leather Armor",
+    "description": "Light armor made from tough leather, offering basic protection.",
+    "defense": 5,
+    "armorType": "Chestplate",
+    "durability": 80,
+    "weight": 15,
+    "elementalResistance": "None"
+  },
+  {
+    "_id": { "$oid": "64e4a2a299b2b59e9f2a1e13" },
+    "type": "Consumable",
+    "name": "Healing Potion",
+    "description": "A potion that instantly heals the user.",
+    "effect": "Healing",
+    "duration": 0,
+    "quantity": 1
+  },
+  {
+    "_id": { "$oid": "64e4a2a299b2b59e9f2a1e14" },
+    "type": "MagicItem",
+    "name": "Scroll of Fireball",
+    "description": "A magical scroll that casts a powerful fireball.",
+    "magicEffect": "Fireball",
+    "manaCost": 20,
+    "cooldown": 30
+  },
+  {
+    "_id": { "$oid": "64e4a2a299b2b59e9f2a1e15" },
+    "type": "Tool",
+    "name": "Pickaxe",
+    "description": "A tool used for mining rocks and minerals.",
+    "toolType": "Mining",
+    "durability": 50,
+    "efficiency": 10
+  },
+  {
+    "_id": { "$oid": "64e4a2a299b2b59e9f2a1e16" },
+    "type": "Treasure",
+    "name": "Gold Coin",
+    "description": "A shiny gold coin used as currency.",
+    "value": 1,
+    "rarity": "Common",
+    "weight": 0.1
+  },
+  {
+    "_id": { "$oid": "64e4a2a299b2b59e9f2a1e17" },
+    "type": "Container",
+    "name": "Leather Backpack",
+    "description": "A sturdy backpack for carrying items.",
+    "capacity": 20,
+    "weightLimit": 50,
+    "contents": [],
+    "isLocked": false,
+    "requiredKey": null
+  },
+  {
+    "_id": { "$oid": "64e4a2a299b2b59e9f2a1e18" },
+    "type": "QuestItem",
+    "name": "Ancient Relic",
+    "description": "A unique relic required to complete a quest.",
+    "questId": "quest123",
+    "isUnique": true
+  },
+  {
+    "_id": { "$oid": "64e4a2a299b2b59e9f2a1e19" },
+    "type": "Armor",
+    "name": "Dragon Scale Shield",
+    "description": "A shield made from dragon scales, offering high resistance to fire.",
+    "defense": 20,
+    "armorType": "Shield",
+    "durability": 150,
+    "weight": 10,
+    "elementalResistance": "Fire"
+  },
+  {
+    "_id": { "$oid": "64e4a2a299b2b59e9f2a1e1a" },
+    "type": "Weapon",
+    "name": "Elven Bow",
+    "description": "A finely crafted bow with superior range and accuracy.",
+    "damage": 18,
+    "range": "Ranged",
+    "durability": 90,
+    "criticalChance": 0.15,
+    "speed": "Fast"
+  },
+  {
+    "_id": { "$oid": "64e4a2a299b2b59e9f2a1e1b" },
+    "type": "MagicItem",
+    "name": "Ring of Invisibility",
+    "description": "A magical ring that grants temporary invisibility.",
+    "magicEffect": "Invisibility",
+    "manaCost": 50,
+    "cooldown": 60
+  },
+  {
+    "_id": { "$oid": "64e4a2a299b2b59e9f2a1e1c" },
+    "type": "Tool",
+    "name": "Fishing Rod",
+    "description": "A tool used for catching fish.",
+    "toolType": "Fishing",
+    "durability": 40,
+    "efficiency": 8
+  },
+  {
+    "_id": { "$oid": "64e4a2a299b2b59e9f2a1e1d" },
+    "type": "Treasure",
+    "name": "Jewel of the Nile",
+    "description": "A rare and valuable jewel, highly sought after by collectors.",
+    "value": 1000,
+    "rarity": "Rare",
+    "weight": 0.5
+  },
+  {
+    "_id": { "$oid": "64e4a2a299b2b59e9f2a1e1e" },
+    "type": "Container",
+    "name": "Iron Chest",
+    "description": "A heavy chest for storing valuable items. Requires a key to open.",
+    "capacity": 50,
+    "weightLimit": 200,
+    "contents": [],
+    "isLocked": true,
+    "requiredKey": "iron_key"
+  },
+  {
+    "_id": { "$oid": "64e4a2a299b2b59e9f2a1e1f" },
+    "type": "QuestItem",
+    "name": "Enchanted Scroll",
+    "description": "A scroll with magical properties, essential for completing a quest.",
+    "questId": "quest456",
+    "isUnique": true
+  },
+  {
+    "_id": { "$oid": "64e4a2a299b2b59e9f2a1e20" },
+    "type": "Weapon",
+    "name": "Thunder Hammer",
+    "description": "A massive hammer that delivers thunderous blows.",
+    "damage": 30,
+    "range": "Melee",
+    "durability": 120,
+    "criticalChance": 0.2,
+    "speed": "Slow"
+  },
+  {
+    "_id": { "$oid": "64e4a2a299b2b59e9f2a1e21" },
+    "type": "Armor",
+    "name": "Mithril Helmet",
+    "description": "A lightweight yet incredibly durable helmet made of mithril.",
+    "defense": 10,
+    "armorType": "Helmet",
+    "durability": 100,
+    "weight": 5,
+    "elementalResistance": "None"
+  },
+  {
+    "_id": { "$oid": "64e4a2a299b2b59e9f2a1e22" },
+    "type": "MagicItem",
+    "name": "Orb of Mana",
+    "description": "A magical orb that restores mana over time.",
+    "magicEffect": "Mana Regeneration",
+    "manaCost": 0,
+    "cooldown": 5
+  },
+  {
+    "_id": { "$oid": "64e4a2a299b2b59e9f2a1e23" },
+    "type": "Consumable",
+    "name": "Strength Elixir",
+    "description": "An elixir that temporarily boosts strength.",
+    "effect": "Buff",
+    "duration": 300,
+    "quantity": 1
+  },
+  {
+    "_id": { "$oid": "64e4a2a299b2b59e9f2a1e24" },
+    "type": "Treasure",
+    "name": "Silver Goblet",
+    "description": "An ornate goblet made of pure silver.",
+    "value": 150,
+    "rarity": "Uncommon",
+    "weight": 1
+  }
+]

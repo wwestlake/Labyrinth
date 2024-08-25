@@ -1,10 +1,17 @@
 ﻿using FluentResults;
+using Labyrinth.API.Entities.Quests;
+using System.Collections.Generic;
 
 namespace Labyrinth.API.Entities.Characters
 {
     public class PlayerCharacter : Character
     {
         public string UserId { get; set; }  // ID of the user who owns this character
+
+        // Lists to keep track of quests associated with this character
+        public List<PlayerQuestState> ActiveQuests { get; set; } = new List<PlayerQuestState>();
+        public List<PlayerQuestState> CompletedQuests { get; set; } = new List<PlayerQuestState>();
+        public List<PlayerQuestState> FailedQuests { get; set; } = new List<PlayerQuestState>();
 
         public PlayerCharacter()
         {
@@ -14,12 +21,10 @@ namespace Labyrinth.API.Entities.Characters
             UseAbility = DefaultUseAbility;
         }
 
-
         // Default attack behavior
         private Result DefaultAttack(Character target)
         {
             // Implement basic attack logic, e.g., reduce target health
-
             return Result.Ok().WithSuccess($"Attacked {target.Name} for ddd damage.");
         }
 

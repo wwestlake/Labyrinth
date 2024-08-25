@@ -16,22 +16,6 @@ public class RoomService
         _rooms = database.GetCollection<Room>(collectionName);
     }
 
-    public async Task SeedRoomsAsync()
-    {
-        var roomsExist = await _rooms.Find(_ => true).AnyAsync();
-        if (!roomsExist)
-        {
-            var lobby = new Room
-            {
-                Name = "The Lobby",
-                Description = "You stand in a large, dimly lit room. The atmosphere is charged with anticipation, as if countless adventurers have passed through here before setting off on their quests. The walls are adorned with ancient tapestries, and the floor is worn smooth from the footsteps of many. There's a sense of history and purpose in the air, and you know that beyond this room lies the unknown. Exits lead off in several directions, each promising its own set of challenges and rewards."
-            };
-
-            await _rooms.InsertOneAsync(lobby);
-        }
-    }
-
-
     public async Task<List<Room>> GetAllRoomsAsync()
     {
         return await _rooms.Find(room => true).ToListAsync();

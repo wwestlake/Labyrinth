@@ -1,0 +1,101 @@
+[
+  {
+    "roomName": "Goblin's Den",
+    "description": "A dark, musty room with an overpowering smell of decay.",
+    "hasMonsters": "true",
+    "monsters": [
+      { "name": "Goblin Warrior" },
+      { "name": "Goblin Archer" }
+    ],
+    "hasTreasure": "true",
+    "treasures": [
+      {
+        "name": "Ancient Coin",
+        "value": "50"
+      },
+      {
+        "name": "Goblin Dagger",
+        "value": "10"
+      }
+    ],
+    "exits": [
+      {
+        "direction": "North",
+        "destination": "The Dark Forest"
+      },
+      {
+        "direction": "East",
+        "destination": "The Deep Cave"
+      }
+    ],
+    "requiredKey": "silver key"
+  },
+  {
+    "roomName": "Enchanted Library",
+    "description": "Shelves of ancient books tower over you, some radiating a faint magical glow.",
+    "hasMonsters": "false",
+    "monsters": [],
+    "hasTreasure": "true",
+    "treasures": [
+      {
+        "name": "Spell Tome",
+        "value": "200"
+      },
+      {
+        "name": "Crystal Ball",
+        "value": "150"
+      }
+    ],
+    "exits": [
+      {
+        "direction": "West",
+        "destination": "Hall of Mirrors"
+      },
+      {
+        "direction": "South",
+        "destination": "Wizard's Study"
+      }
+    ],
+    "requiredKey": "golden key"
+  },
+  {
+    "roomName": "Abandoned Armory",
+    "description": "Old and rusted weapons are scattered across the floor.",
+    "hasMonsters": "false",
+    "monsters": [],
+    "hasTreasure": "false",
+    "treasures": [],
+    "exits": [
+      {
+        "direction": "North",
+        "destination": "Great Hall"
+      },
+      {
+        "direction": "East",
+        "destination": "Castle Courtyard"
+      }
+    ],
+    "requiredKey": "iron key"
+  },
+  {
+    "roomName": "Crystal Cavern",
+    "description": "The walls of this cavern glitter with crystals, reflecting a mesmerizing array of colors.",
+    "hasMonsters": "true",
+    "monsters": [
+      { "name": "Crystal Golem" }
+    ],
+    "hasTreasure": "false",
+    "treasures": [],
+    "exits": [
+      {
+        "direction": "South",
+        "destination": "Underground River"
+      },
+      {
+        "direction": "West",
+        "destination": "Hidden Tunnel"
+      }
+    ],
+    "requiredKey": "crystal key"
+  }
+]

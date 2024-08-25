@@ -1,0 +1,136 @@
+[
+  {
+    "roomName": "Goblin Ambush",
+    "description": "A narrow path surrounded by dense bushes. You hear rustling sounds nearby.",
+    "hasEnemies": "true",
+    "enemies": [
+      {
+        "name": "Goblin Warrior",
+        "level": "2",
+        "description": "A sneaky goblin with a rusted sword."
+      },
+      {
+        "name": "Goblin Shaman",
+        "level": "3",
+        "description": "A goblin casting spells from the shadows."
+      }
+    ],
+    "hasTraps": "true",
+    "traps": [
+      {
+        "trapType": "Pitfall",
+        "trapDescription": "A concealed pit covered with leaves."
+      },
+      {
+        "trapType": "Snare",
+        "trapDescription": "A hidden snare trap, ready to catch the unwary."
+      }
+    ],
+    "canEscape": "true",
+    "escapeRoute": "A narrow gap between two rocks leading back to the safety of the forest.",
+    "exits": [
+      {
+        "direction": "North",
+        "destination": "Dark Forest"
+      },
+      {
+        "direction": "East",
+        "destination": "Goblin Camp"
+      }
+    ]
+  },
+  {
+    "roomName": "Haunted Crypt",
+    "description": "An eerie, damp crypt filled with the stench of decay. The walls are lined with old, crumbling coffins.",
+    "hasEnemies": "true",
+    "enemies": [
+      {
+        "name": "Skeleton Warrior",
+        "level": "4",
+        "description": "A reanimated skeleton with a chipped sword and shield."
+      },
+      {
+        "name": "Ghost",
+        "level": "5",
+        "description": "A spectral entity that floats through the air, emitting a chilling wail."
+      }
+    ],
+    "hasTraps": "false",
+    "traps": [],
+    "canEscape": "false",
+    "escapeRoute": "",
+    "exits": [
+      {
+        "direction": "West",
+        "destination": "Catacombs"
+      },
+      {
+        "direction": "South",
+        "destination": "Graveyard Entrance"
+      }
+    ]
+  },
+  {
+    "roomName": "Bandit Hideout",
+    "description": "A dimly lit cave with scattered supplies and a makeshift campfire in the center.",
+    "hasEnemies": "true",
+    "enemies": [
+      {
+        "name": "Bandit Leader",
+        "level": "6",
+        "description": "A grizzled bandit with a wicked grin and a sharp axe."
+      },
+      {
+        "name": "Bandit Archer",
+        "level": "4",
+        "description": "A bandit with a bow, ready to strike from the shadows."
+      }
+    ],
+    "hasTraps": "true",
+    "traps": [
+      {
+        "trapType": "Tripwire",
+        "trapDescription": "A hidden tripwire connected to a crossbow trap."
+      }
+    ],
+    "canEscape": "true",
+    "escapeRoute": "A hidden tunnel behind a pile of crates that seems to lead outside.",
+    "exits": [
+      {
+        "direction": "North",
+        "destination": "Forest Clearing"
+      },
+      {
+        "direction": "East",
+        "destination": "Mountain Path"
+      }
+    ]
+  },
+  {
+    "roomName": "Arena of Doom",
+    "description": "A large, circular arena surrounded by tall stone walls. The ground is stained with old blood.",
+    "hasEnemies": "true",
+    "enemies": [
+      {
+        "name": "Minotaur",
+        "level": "8",
+        "description": "A fearsome beast with the body of a man and the head of a bull, wielding a massive battle axe."
+      }
+    ],
+    "hasTraps": "true",
+    "traps": [
+      {
+        "trapType": "Spiked Pit",
+        "trapDescription": "A pit filled with spikes that opens unexpectedly in the middle of the arena."
+      }
+    ],
+    "canEscape": "false",
+    "escapeRoute": "",
+    "exits": [
+      {
+        "direction": "South",
+        "destination": "Warrior's Quarters"
+      }
+    ]
+  }
+]

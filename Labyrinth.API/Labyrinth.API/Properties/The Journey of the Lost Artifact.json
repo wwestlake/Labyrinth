@@ -1,0 +1,90 @@
+[
+  {
+    "QuestId": "example-quest-001",
+    "Title": "The Journey of the Lost Artifact",
+    "Description": "Retrieve the lost artifact and return it to the village elder. Be aware, your choices will shape the outcome!",
+    "Objectives": [
+      {
+        "Description": "Talk to the Village Elder to learn about the lost artifact.",
+        "IsCompleted": false
+      },
+      {
+        "Description": "Travel to the Enchanted Forest and find clues about the artifact.",
+        "IsCompleted": false
+      },
+      {
+        "Description": "Defeat the Guardian of the Forest.",
+        "IsCompleted": false
+      },
+      {
+        "Description": "Search the Ruins for the artifact.",
+        "IsCompleted": false
+      },
+      {
+        "Description": "Solve the Ancient Puzzle to access the hidden chamber.",
+        "IsCompleted": false
+      },
+      {
+        "Description": "Retrieve the Artifact from the hidden chamber.",
+        "IsCompleted": false
+      },
+      {
+        "Description": "You encounter a fork in the road: Choose to either take the longer but safer path (Path A) or the shorter, more dangerous path (Path B).",
+        "IsCompleted": false,
+        "IsBranching": true,
+        "BranchChoices": [
+          {
+            "Choice": "Path A",
+            "Objectives": [
+              {
+                "Description": "Navigate through the dense forest avoiding traps and ambushes.",
+                "IsCompleted": false
+              },
+              {
+                "Description": "Help a wounded traveler along the way.",
+                "IsCompleted": false
+              }
+            ]
+          },
+          {
+            "Choice": "Path B",
+            "Objectives": [
+              {
+                "Description": "Fight off a group of bandits who ambush you.",
+                "IsCompleted": false
+              },
+              {
+                "Description": "Cross a raging river using a rickety old bridge.",
+                "IsCompleted": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "Description": "Regardless of the path taken, return to the Village with the artifact.",
+        "IsCompleted": false
+      },
+      {
+        "Description": "Present the Artifact to the Village Elder.",
+        "IsCompleted": false
+      },
+      {
+        "Description": "Receive your reward and the gratitude of the village.",
+        "IsCompleted": false
+      }
+    ],
+    "Rewards": [
+      {
+        "Type": "Experience",
+        "Amount": 500
+      },
+      {
+        "Type": "Item",
+        "ItemId": "artifact-reward-item-001"
+      }
+    ],
+    "Prerequisites": [],
+    "FailureConditions": []
+  }
+]

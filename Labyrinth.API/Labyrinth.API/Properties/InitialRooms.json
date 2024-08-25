@@ -1,0 +1,90 @@
+[
+  {
+    "_id": { "$oid": "64e4a2a299b2b59e9f2a1e01" },
+    "name": "Lobby",
+    "description": "A spacious lobby with exits in all directions.",
+    "exits": [
+      {
+        "direction": "Up",
+        "roomId": { "$oid": "64e4a2a299b2b59e9f2a1e02" }
+      },
+      {
+        "direction": "West",
+        "roomId": { "$oid": "64e4a2a299b2b59e9f2a1e03" }
+      },
+      {
+        "direction": "East",
+        "roomId": { "$oid": "64e4a2a299b2b59e9f2a1e04" }
+      },
+      {
+        "direction": "South",
+        "roomId": { "$oid": "64e4a2a299b2b59e9f2a1e05" }
+      },
+      {
+        "direction": "North",
+        "roomId": { "$oid": "64e4a2a299b2b59e9f2a1e06" }
+      }
+    ],
+    "items": []
+  },
+  {
+    "_id": { "$oid": "64e4a2a299b2b59e9f2a1e02" },
+    "name": "Owners",
+    "description": "A room accessible to the owners with a grand view.",
+    "exits": [
+      {
+        "direction": "Down",
+        "roomId": { "$oid": "64e4a2a299b2b59e9f2a1e01" }
+      }
+    ],
+    "items": []
+  },
+  {
+    "_id": { "$oid": "64e4a2a299b2b59e9f2a1e03" },
+    "name": "Admins",
+    "description": "A room for administrators, filled with control panels.",
+    "exits": [
+      {
+        "direction": "East",
+        "roomId": { "$oid": "64e4a2a299b2b59e9f2a1e01" }
+      }
+    ],
+    "items": []
+  },
+  {
+    "_id": { "$oid": "64e4a2a299b2b59e9f2a1e04" },
+    "name": "Moderators",
+    "description": "A room for moderators to discuss and manage.",
+    "exits": [
+      {
+        "direction": "West",
+        "roomId": { "$oid": "64e4a2a299b2b59e9f2a1e01" }
+      }
+    ],
+    "items": []
+  },
+  {
+    "_id": { "$oid": "64e4a2a299b2b59e9f2a1e05" },
+    "name": "Users",
+    "description": "A room where users gather and interact.",
+    "exits": [
+      {
+        "direction": "North",
+        "roomId": { "$oid": "64e4a2a299b2b59e9f2a1e01" }
+      }
+    ],
+    "items": []
+  },
+  {
+    "_id": { "$oid": "64e4a2a299b2b59e9f2a1e06" },
+    "name": "Main Dungeon",
+    "description": "The entrance to the main dungeon, filled with mystery.",
+    "exits": [
+      {
+        "direction": "South",
+        "roomId": { "$oid": "64e4a2a299b2b59e9f2a1e01" }
+      }
+    ],
+    "items": []
+  }
+]

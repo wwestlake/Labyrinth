@@ -1,0 +1,22 @@
+﻿{{roomName}}
+
+{{description}}
+
+{{#if hasMonsters}}
+There are monsters in the room: {{#each monsters}}{{name}}, {{/each}}
+{{else}}
+The room is eerily quiet.
+{{/if}}
+
+{{#if hasTreasure}}
+You see the following treasures: {{#each treasures}}{{name}} (worth {{value}} gold), {{/each}}
+{{else}}
+There is no treasure to be found here.
+{{/if}}
+
+Exits:
+{{#each exits}}
+- {{direction}}: {{destination}}
+{{/each}}
+
+{{useMagic key requiredKey}}

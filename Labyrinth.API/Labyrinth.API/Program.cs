@@ -13,6 +13,7 @@ using MongoDB.Driver;
 using RulesEngine.Models;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using Labyrinth.API.Utilities;
 
 
 
@@ -170,13 +171,13 @@ builder.Services.AddSingleton(sp =>
     new RoomService(
         sp.GetRequiredService<IMongoClient>(),
         "Labyrinth",
-        "rooms")
+        "Rooms")
 );
 builder.Services.AddSingleton<ItemService>(sp =>
     new ItemService(
         sp.GetRequiredService<IMongoClient>(),
         "Labyrinth",
-        "items"));
+        "Items"));
 builder.Services.AddSingleton<Func<string, FluentResults.Result<CommandAst>>>(sp =>
 {
     // Assuming that `LabLang.LabLang.compileCommand` is the F# function
@@ -218,7 +219,7 @@ var jsonConvertOptions = new JsonSerializerOptions
 };
 
 // Deserialize the JSON into a list of Workflow objects
-var workflows = JsonSerializer.Deserialize<List<Workflow>>(jsonString, jsonConvertOptions);
+var workflows = System.Text.Json.JsonSerializer.Deserialize<List<Workflow>>(jsonString, jsonConvertOptions);
 
 // Initialize the RulesEngine with the workflows
 var rulesEngine = new RulesEngine.RulesEngine(workflows.ToArray());
@@ -226,9 +227,13 @@ var rulesEngine = new RulesEngine.RulesEngine(workflows.ToArray());
 // Register RulesEngine in the DI container
 builder.Services.AddSingleton(rulesEngine);
 
-
 // 9. Application Build and Pipeline Configuration
 var app = builder.Build();
+
+var mongoClient = app.Services.GetRequiredService<IMongoClient>();
+
+DatabaseInitializer.InitializeDatabase(mongoClient);
+
 
 if (app.Environment.IsDevelopment())
 {
@@ -236,7 +241,6 @@ if (app.Environment.IsDevelopment())
     using (var scope = app.Services.CreateScope())
     {
         var roomService = scope.ServiceProvider.GetRequiredService<RoomService>();
-        await roomService.SeedRoomsAsync();
     }
 }
 
@@ -261,6 +265,7 @@ app.MapControllers();
 
 var logger = app.Services.GetRequiredService<ILogger<Program>>();
 logger.LogInformation("Application Started");
+
 
 app.Run();
 

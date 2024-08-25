@@ -7,6 +7,7 @@
 
   <ItemGroup>
     <Compile Include="Library.fs" />
+    <Compile Include="TemplateParser.fs" />
   </ItemGroup>
 
   <ItemGroup>
