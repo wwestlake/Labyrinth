@@ -63,10 +63,7 @@
     "name": "Leather Backpack",
     "description": "A sturdy backpack for carrying items.",
     "capacity": 20,
-    "weightLimit": 50,
-    "contents": [],
-    "isLocked": false,
-    "requiredKey": null
+    "weightLimit": 50
   },
   {
     "_id": { "$oid": "64e4a2a299b2b59e9f2a1e18" },
@@ -131,10 +128,7 @@
     "name": "Iron Chest",
     "description": "A heavy chest for storing valuable items. Requires a key to open.",
     "capacity": 50,
-    "weightLimit": 200,
-    "contents": [],
-    "isLocked": true,
-    "requiredKey": "iron_key"
+    "weightLimit": 200
   },
   {
     "_id": { "$oid": "64e4a2a299b2b59e9f2a1e1f" },

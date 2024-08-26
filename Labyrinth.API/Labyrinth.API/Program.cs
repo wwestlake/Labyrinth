@@ -14,6 +14,7 @@ using RulesEngine.Models;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using Labyrinth.API.Utilities;
+using Newtonsoft.Json;
 
 
 
@@ -164,7 +165,13 @@ builder.Services.AddSwaggerGen(c =>
 });
 
 // 8. Service Configuration
-builder.Services.AddControllers();
+builder.Services.AddControllers()
+            .AddNewtonsoftJson(options =>
+            {
+                options.SerializerSettings.TypeNameHandling = TypeNameHandling.Auto; // Enable polymorphic serialization
+            });
+
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSingleton(typeof(IBenchmark<>), typeof(Benchmark<>));
 builder.Services.AddSingleton(sp =>
@@ -209,6 +216,8 @@ builder.Services.AddSignalR(hubOptions =>
 builder.Services.AddSingleton<IChatService, ChatService>();
 builder.Services.AddScoped<ICommandProcessor, CommandProcessor>();
 builder.Services.AddScoped<IRulesEngineService, RulesEngineService>();
+builder.Services.AddScoped<IItemPrototypeService, ItemPrototypeService>();
+builder.Services.AddScoped<IItemInstanceService, ItemInstanceService>();
 
 var rulesFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "config", "rules.json");
 var jsonString = File.ReadAllText(rulesFilePath);
