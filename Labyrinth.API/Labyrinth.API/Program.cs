@@ -218,6 +218,7 @@ builder.Services.AddScoped<ICommandProcessor, CommandProcessor>();
 builder.Services.AddScoped<IRulesEngineService, RulesEngineService>();
 builder.Services.AddScoped<IItemPrototypeService, ItemPrototypeService>();
 builder.Services.AddScoped<IItemInstanceService, ItemInstanceService>();
+builder.Services.AddScoped<IProcessService, ProcessService>();
 
 var rulesFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "config", "rules.json");
 var jsonString = File.ReadAllText(rulesFilePath);
