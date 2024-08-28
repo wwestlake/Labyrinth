@@ -118,10 +118,9 @@ Push the Changes to Your Fork:
 
 ```
 git push origin feature/your-feature-name
-Submitting a Pull Request
-Create a Pull Request:
 ```
-
+# Submitting a Pull Request
+## Create a Pull Request:
 Go to your forked repository on GitHub and click the "Compare & pull request" button. This will start the process of submitting a pull request to the original repository.
 
 1. Describe Your Changes:
@@ -130,9 +129,9 @@ Provide a clear and concise description of your changes in the PR description. I
 
 1. Submit the Pull Request:
 
-Submit the pull request for review.
+## Submit the pull request for review.
 
-Review Process
+## Review Process
 Once you have submitted your PR, it will be reviewed. You may receive feedback or requests for changes. Once the PR is approved, it will be merged into the main repository.
 
 
