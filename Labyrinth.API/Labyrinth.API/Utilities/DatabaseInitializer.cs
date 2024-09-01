@@ -1,8 +1,6 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Bson.Serialization;
-using MongoDB.Bson.Serialization.Attributes;
 using MongoDB.Driver;
-using Newtonsoft.Json;
 using System.Reflection;
 
 namespace Labyrinth.API.Utilities
@@ -14,7 +12,8 @@ namespace Labyrinth.API.Utilities
         {
             ("Properties/InitialItems.json", ShouldImportInitialItems, "Items"),
             ("Properties/InitialRooms.json", ShouldImportInitialRooms, "Rooms"),
-            ("Properties/The Journey of the Lost Artifact.json", ShouldImportQuests, "Quests")
+            ("Properties/The Journey of the Lost Artifact.json", ShouldImportQuests, "Quests"),
+            ("Properties/InitialProcesses.json",ShouldImportInitialProcesses,"Processes")
             // Add more files and conditions here as needed
         };
 
@@ -46,6 +45,13 @@ namespace Labyrinth.API.Utilities
             // Check if there are any documents in the 'Items' collection
             return !questCollection.Find(new BsonDocument()).Any();
         }
+
+        private static bool ShouldImportInitialProcesses(IMongoCollection<BsonDocument> processCollection)
+        {
+            // Check if there are any documents in the 'Items' collection
+            return !processCollection.Find(new BsonDocument()).Any();
+        }
+
 
         private static bool ShouldImportQuests(IMongoCollection<BsonDocument> roomsCollection)
         {

@@ -1,6 +1,5 @@
 ﻿using FluentResults;
 using Labyrinth.API.Entities.Quests;
-using System.Collections.Generic;
 
 namespace Labyrinth.API.Entities.Characters
 {

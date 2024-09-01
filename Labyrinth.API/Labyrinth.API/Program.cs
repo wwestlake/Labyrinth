@@ -4,19 +4,18 @@ using Google.Apis.Auth.OAuth2;
 using Labyrinth.API.Common;
 using Labyrinth.API.Logging;
 using Labyrinth.API.Services;
+using Labyrinth.API.Utilities;
 using Labyrinth.Common;
 using Labyrinth.Communication.Chat;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.SignalR;
 using Microsoft.IdentityModel.Tokens;
 using MongoDB.Driver;
+using Newtonsoft.Json;
 using RulesEngine.Models;
 using System.Text.Json;
 using System.Text.Json.Serialization;
-using Labyrinth.API.Utilities;
-using Newtonsoft.Json;
-
-
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -36,7 +35,7 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowFrontend", builder =>
     {
-        builder.WithOrigins("http://localhost:5173", "http://localhost:5174")
+        builder.WithOrigins("http://localhost:5173", "http://localhost:5174", "http://localhost:3000")
                .AllowAnyMethod()
                .AllowAnyHeader()
                .AllowCredentials();
@@ -171,7 +170,6 @@ builder.Services.AddControllers()
                 options.SerializerSettings.TypeNameHandling = TypeNameHandling.Auto; // Enable polymorphic serialization
             });
 
-
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSingleton(typeof(IBenchmark<>), typeof(Benchmark<>));
 builder.Services.AddSingleton(sp =>
@@ -219,9 +217,27 @@ builder.Services.AddScoped<IRulesEngineService, RulesEngineService>();
 builder.Services.AddScoped<IItemPrototypeService, ItemPrototypeService>();
 builder.Services.AddScoped<IItemInstanceService, ItemInstanceService>();
 builder.Services.AddScoped<IProcessService, ProcessService>();
+builder.Services.AddScoped<IPlayerService, PlayerService>();
 
 var rulesFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "config", "rules.json");
 var jsonString = File.ReadAllText(rulesFilePath);
+
+// 9. OpenAI API Configuration
+string openAiApiKey = builder.Configuration["OpenAI:ApiKey"];
+
+builder.Services.AddHttpClient<ChatBotService>(client =>
+{
+    client.DefaultRequestHeaders.Add("Authorization", $"Bearer {openAiApiKey}");
+});
+
+builder.Services.AddSingleton<ChatBotService>(sp =>
+{
+    var hubContext = sp.GetRequiredService<IHubContext<ChatHub>>();
+    var httpClient = sp.GetRequiredService<IHttpClientFactory>().CreateClient();
+    var openAiApiKey = builder.Configuration["OpenAI:ApiKey"];
+
+    return new ChatBotService(hubContext, httpClient, openAiApiKey, "HelpBot");
+});
 
 var jsonConvertOptions = new JsonSerializerOptions
 {
@@ -243,7 +259,6 @@ var app = builder.Build();
 var mongoClient = app.Services.GetRequiredService<IMongoClient>();
 
 DatabaseInitializer.InitializeDatabase(mongoClient);
-
 
 if (app.Environment.IsDevelopment())
 {
@@ -268,14 +283,14 @@ app.UseCors("AllowFrontend");
 app.UseAuthorization();
 app.UseEndpoints(endpoints =>
 {
-    _ = endpoints.MapControllers();
-    _ = endpoints.MapHub<ChatHub>("/chat");
+    endpoints.MapControllers();
+    endpoints.MapHub<ChatHub>("/chat");
 });
+
 app.MapControllers();
 
 var logger = app.Services.GetRequiredService<ILogger<Program>>();
 logger.LogInformation("Application Started");
-
 
 app.Run();
 

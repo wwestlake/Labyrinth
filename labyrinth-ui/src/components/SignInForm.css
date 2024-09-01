@@ -1,0 +1,46 @@
+/* src/components/SignInForm.css */
+
+/* General container styling for the sign-in form */
+.signin-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+    background-color: rgb(32, 32, 32); /* Dark gray with 50% transparency */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: #ffffff;
+  }
+  
+  /* Styling for the input fields */
+  .signin-container .form-control {
+    background-color: rgba(48, 48, 48, 0.8); /* Slightly lighter gray with less transparency */
+    color: #ffffff;
+    border: 1px solid #444;
+    margin-bottom: 15px;
+  }
+  
+  /* Styling for the text labels */
+  .signin-container label {
+    color: #ffffff;
+  }
+  
+  /* Styling for the buttons */
+  .signin-container .btn-primary {
+    background-color: rgba(58, 58, 58, 0.8); /* Gray with slight transparency */
+    border-color: #3a3a3a;
+    color: #ffffff;
+  }
+  
+  .signin-container .btn-primary:hover {
+    background-color: rgba(80, 80, 80, 0.8); /* Lighter gray on hover */
+    border-color: #505050;
+  }
+  
+  /* Styling for error messages */
+  .signin-container .invalid-feedback {
+    color: #ff4d4f;
+  }
+  

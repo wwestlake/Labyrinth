@@ -1,0 +1,60 @@
+/* src/components/SignupForm.css */
+
+/* Container styling for the signup form */
+.signup-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+    background-color: rgb(32, 32, 32); /* Dark gray with 50% transparency */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: #ffffff; /* White text color */
+  }
+  
+  .signup-container .form-control {
+    background-color: rgba(48, 48, 48, 0.8) !important; /* Enforcing the background color */
+    color: #ffffff !important; /* Ensuring text is white */
+    border: 1px solid #444 !important;
+    margin-bottom: 15px !important;
+  }
+  
+  
+  /* Styling for the text labels */
+  .signup-container label {
+    color: #ffffff; /* White text color */
+  }
+  
+  /* Styling for the buttons */
+  .signup-container .btn-primary {
+    background-color: rgba(58, 58, 58, 0.8); /* Gray with slight transparency */
+    border-color: #3a3a3a;
+    color: #ffffff; /* White text color */
+  }
+  
+  .signup-container .btn-primary:hover {
+    background-color: rgba(80, 80, 80, 0.8); /* Lighter gray on hover */
+    border-color: #505050;
+  }
+  
+  /* Styling for the checkbox and labels */
+  .signup-container .form-check-label {
+    color: #ffffff; /* White text color */
+  }
+  
+  /* Styling for error messages */
+  .signup-container .invalid-feedback {
+    color: #ff4d4f; /* Red for error messages */
+  }
+  
+  /* General margin and padding adjustments */
+  .signup-container .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .signup-container .btn {
+    margin-top: 20px;
+  }
+  

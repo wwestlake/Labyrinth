@@ -10,5 +10,6 @@ namespace Labyrinth.API.Services
         Task<Result> SubmitCharacterAsync(string characterId, IDictionary<string, int> submittedStats);
         Task UpdateCharacterAsync(string characterId, Character updatedCharacter);
         Task<Character> GetCharacterByIdAsync(string characterId); // Add this method
+        Task<bool> IsCharacterNameUniqueAsync(string name)
     }
 }

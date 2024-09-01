@@ -1,6 +1,5 @@
 ﻿using Labyrinth.API.Entities.Items;
 using Labyrinth.API.Services;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MongoDB.Bson;
 

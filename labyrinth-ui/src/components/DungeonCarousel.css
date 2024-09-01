@@ -1,0 +1,30 @@
+/* src/components/DungeonCarousel.css */
+
+.carousel-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Adds shadow to text for better readability */
+    z-index: 2; /* Ensure overlay is above carousel images */
+  }
+  
+  .carousel-title {
+    font-size: 3rem;
+    font-weight: bold;
+    text-align: center;
+    color: #fff; /* White text for high contrast */
+  }
+  
+  .carousel-inner {
+    max-height: 300px; /* Constrain carousel height */
+    overflow: hidden; /* Hide overflow if images are larger */
+  }
+  
+  .carousel-item img {
+    object-fit: cover; /* Ensures images cover the carousel container */
+    width: 100%;
+    height: 300px; /* Set image height to match the carousel container */
+  }
+  
