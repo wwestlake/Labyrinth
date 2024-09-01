@@ -1,7 +1,7 @@
 // src/components/SignInForm.jsx
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate for redirection
-import { login } from '../services/authService'; // Import the login function from the service
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { login, getStoredToken, getStoredCredentials } from '../services/authService';
 import './SignInForm.css';
 
 const SignInForm = () => {
@@ -10,8 +10,21 @@ const SignInForm = () => {
   const [rememberMe, setRememberMe] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
-  const navigate = useNavigate(); // Initialize navigate function
+  useEffect(() => {
+    const token = getStoredToken();
+    if (token) {
+      navigate('/game'); // Automatically navigate to game if a valid token exists
+    } else {
+      const storedCredentials = getStoredCredentials();
+      if (storedCredentials) {
+        setEmail(storedCredentials.email);
+        setPassword(storedCredentials.password);
+        setRememberMe(true);
+      }
+    }
+  }, [navigate]);
 
   const handleSignIn = async (event) => {
     event.preventDefault();
@@ -19,9 +32,9 @@ const SignInForm = () => {
     setErrorMessage('');
 
     try {
-      const { user, token } = await login(email, password);
+      const { user, token } = await login(email, password, rememberMe);
       console.log("User logged in:", user);
-      navigate('/game'); // Redirect to the Game component after successful login
+      navigate('/game');
     } catch (error) {
       setErrorMessage('Failed to sign in. Please check your credentials.');
       console.error("Sign-in error:", error);

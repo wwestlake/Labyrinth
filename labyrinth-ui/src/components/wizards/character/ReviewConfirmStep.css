@@ -1,0 +1,55 @@
+.review-confirm-step {
+    padding: 20px;
+    max-width: 500px;
+    margin: 0 auto;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+  }
+  
+  .review-confirm-step h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .review-confirm-step p {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  
+  .review-confirm-step h3 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  .review-confirm-step ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .review-confirm-step li {
+    margin-bottom: 5px;
+    font-size: 14px;
+  }
+  
+  button {
+    width: 48%;
+    padding: 10px;
+    background-color: #1890ff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+  
+  button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+  }
+  
+  button + button {
+    margin-left: 4%;
+  }
+  
