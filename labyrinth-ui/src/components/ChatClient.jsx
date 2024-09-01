@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
-import './ChatClient.css'; // Ensure you have the CSS styles
+import './ChatClient.css';
+import signalRService from '../services/SignalRService'; // Import the SignalR service
 
 const ChatClient = () => {
   const [participants, setParticipants] = useState([]);
@@ -15,17 +16,26 @@ const ChatClient = () => {
   const messageEndRef = useRef(null);
 
   useEffect(() => {
-    // Example: Simulate receiving a new message
-    const newMessage = {
-      user: 'System',
-      text: 'Welcome to the chat!',
-      timestamp: new Date(),
-    };
-    setMessages((prevMessages) => [...prevMessages, newMessage]);
+    // Start SignalR connection when component mounts
+    signalRService.startConnection();
 
+    // Set up listener for receiving messages from server
+    signalRService.onReceiveMessage((user, message) => {
+      const newMessage = { user, text: message, timestamp: new Date() };
+      setMessages((prevMessages) => [...prevMessages, newMessage]);
+    });
+
+    // Clean up SignalR connection when component unmounts
+    return () => {
+      signalRService.offReceiveMessage();
+      signalRService.stopConnection();
+    };
+  }, []);
+
+  useEffect(() => {
     // Scroll to the bottom when a new message is added
     messageEndRef.current?.scrollIntoView({ behavior: 'smooth' });
-  }, []);
+  }, [messages]);
 
   useEffect(() => {
     // Save settings to local storage whenever they change
@@ -41,6 +51,9 @@ const ChatClient = () => {
       text: message,
       timestamp: new Date(),
     };
+
+    // Send message to server using SignalRService
+    signalRService.sendMessage('general', 'You', message);
 
     setMessages((prevMessages) => [...prevMessages, newMessage]);
     setMessage('');
