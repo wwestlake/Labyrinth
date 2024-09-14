@@ -3,6 +3,7 @@ using Labyrinth.API.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using System.Net.Http.Headers;
 
 namespace Labyrinth.API.Controllers
 {

@@ -2,7 +2,7 @@ import { auth } from '../firebase';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, getIdToken, signOut, onIdTokenChanged } from 'firebase/auth';
 import axios from 'axios';
 
-const API_BASE_URL = 'http://localhost:5232/api'; // Base URL of your backend API
+const API_BASE_URL = 'https://localhost:5001/api'; // Base URL of your backend API
 
 // Store token in local storage (or session storage or memory)
 const storeToken = (token) => {

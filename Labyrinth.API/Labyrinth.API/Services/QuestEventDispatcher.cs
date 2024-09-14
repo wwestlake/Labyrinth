@@ -1,4 +1,7 @@
-﻿namespace Labyrinth.API.Services
+﻿using System;
+using System.Collections.Generic;
+
+namespace Labyrinth.API.Services
 {
     public class QuestEventDispatcher
     {

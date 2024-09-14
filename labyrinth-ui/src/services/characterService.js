@@ -2,7 +2,7 @@
 import axios from 'axios';
 import { getValidToken } from './authService'; // Ensure you have this function to get the token
 
-const API_BASE_URL = 'http://localhost:5232/api/Character'; // Base URL of your backend API
+const API_BASE_URL = 'https://localhost:5001/api/Character'; // Base URL of your backend API
 
 // Function to create a new character
 export const createCharacter = async (characterData) => {

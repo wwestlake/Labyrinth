@@ -1,4 +1,6 @@
-﻿namespace Labyrinth.API.Entities.Quests
+﻿using System.Collections.Generic;
+
+namespace Labyrinth.API.Entities.Quests
 {
     public class Quest
     {

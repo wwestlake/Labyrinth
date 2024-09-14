@@ -1,7 +1,10 @@
 ﻿using Microsoft.AspNetCore.SignalR;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Labyrinth.Communication.Chat
 {
+    [Authorize]
     public class ChatHub : Hub
     {
         private readonly ChatBotService _chatBotService;

@@ -1,5 +1,6 @@
 ﻿using Labyrinth.API.Entities;
 using Labyrinth.API.Entities.Characters;
+using System;
 
 namespace Labyrinth.API.Services
 {

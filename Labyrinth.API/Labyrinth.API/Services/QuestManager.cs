@@ -1,5 +1,8 @@
 ﻿using Labyrinth.API.Entities.Characters;
 using Labyrinth.API.Entities.Quests;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Labyrinth.API.Services
 {

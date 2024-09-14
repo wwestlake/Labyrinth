@@ -8,24 +8,25 @@ class SignalRService {
   }
 
   async startConnection() {
-    // Retrieve the token (replace with your actual logic)
     const token = this.getToken();
 
-    // Set up the SignalR connection with authorization header
     this.connection = new signalR.HubConnectionBuilder()
-      .withUrl('http://localhost:5232/chat', {
-        accessTokenFactory: () => token,  // Attach the token here
+      .withUrl('https://localhost:5001/chat', {
+        accessTokenFactory: () => token,
+        transport: signalR.HttpTransportType.WebSockets
       })
       .withAutomaticReconnect()
+      .configureLogging(signalR.LogLevel.Trace) 
       .build();
 
-    // Start the connection and handle any errors
     try {
       await this.connection.start();
       console.log('Connected to SignalR Hub');
     } catch (err) {
       console.error('Error connecting to SignalR Hub:', err);
     }
+
+    console.log('SignalR connection state after start:', this.connection.state);
   }
 
   stopConnection() {
@@ -36,16 +37,24 @@ class SignalRService {
 
   async sendMessage(channelId, user, message) {
     if (!this.connection) {
-      console.error('No SignalR connection available.');
-      return;
+        console.error('No SignalR connection available.');
+        return;
+    }
+
+    console.log('Current SignalR connection state:', this.connection.state); // Add this line
+
+    if (this.connection.state !== signalR.HubConnectionState.Connected) {
+        console.error('SignalR connection is not connected.');
+        return;
     }
 
     try {
-      await this.connection.invoke('SendMessage', channelId, user, message);
+        console.log(`Sending message to ${channelId} from ${user}: ${message}`);
+        await this.connection.invoke('SendMessage', channelId, user, message);
     } catch (err) {
-      console.error('Error sending message:', err);
+        console.error('Error sending message:', err);
     }
-  }
+}
 
   onReceiveMessage(callback) {
     if (!this.connection) {
@@ -66,7 +75,7 @@ class SignalRService {
 
   // Function to retrieve token from storage (replace with actual implementation)
   getToken() {
-    return localStorage.getItem('userToken');  // Example: replace with your token retrieval logic
+    return localStorage.getItem('token');  // Example: replace with your token retrieval logic
   }
 }
 

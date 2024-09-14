@@ -3,6 +3,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { GameProvider } from './context/GameContext';
 import LandingPage from './components/LandingPage';
+import PluginManager from './components/PluginManager';
 import Game from './components/Game';
 import 'bootstrap/dist/css/bootstrap.min.css';
 

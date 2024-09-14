@@ -46,10 +46,12 @@ const ChatClient = () => {
   const handleSendMessage = () => {
     if (!message.trim()) return;
 
+    console.log('handleSendMessage called'); // Add this line to ensure the function is invoked
+
     const newMessage = {
-      user: 'You',
-      text: message,
-      timestamp: new Date(),
+        user: 'You',
+        text: message,
+        timestamp: new Date(),
     };
 
     // Send message to server using SignalRService

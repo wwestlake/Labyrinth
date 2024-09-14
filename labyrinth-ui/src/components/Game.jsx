@@ -16,6 +16,7 @@ import GameConfiguration from './GameConfiguration';
 import ContentManagement from './ContentManagement';
 import EventScheduling from './EventScheduling';
 import SupportTickets from './SupportTickets';
+import PluginManager from './PluginManager';
 import './Game.css';
 
 const Game = () => {
@@ -89,6 +90,7 @@ const Game = () => {
               <NavLink to="/game/content-management" className={({ isActive }) => isActive ? 'submenu-item active' : 'submenu-item'}>Content Management</NavLink>
               <NavLink to="/game/event-scheduling" className={({ isActive }) => isActive ? 'submenu-item active' : 'submenu-item'}>Event Scheduling</NavLink>
               <NavLink to="/game/support-tickets" className={({ isActive }) => isActive ? 'submenu-item active' : 'submenu-item'}>Support Tickets</NavLink>
+              <NavLink to="/game/plugins" className={({ isActive }) => isActive ? 'submenu-item active' : 'submenu-item'}>Plugin Manager</NavLink> {/* Plugin Manager Link */}
             </div>
           )}
         </div>
@@ -112,6 +114,7 @@ const Game = () => {
           <Route path="content-management" element={<ContentManagement />} />
           <Route path="event-scheduling" element={<EventScheduling />} />
           <Route path="support-tickets" element={<SupportTickets />} />
+          <Route path="plugins" element={<PluginManager />} /> {/* Route for Plugin Manager */}
         </Routes>
       </div>
     </div>

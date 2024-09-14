@@ -1,7 +1,8 @@
-﻿using Labyrinth.API.Entities.Items;
-using Labyrinth.API.Entities.Quests;
-using MongoDB.Bson;
+﻿using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
+using Labyrinth.API.Entities.Items;
+using Labyrinth.API.Entities.Quests;
+using System.Collections.Generic;
 
 namespace Labyrinth.API.Entities.Characters
 {
