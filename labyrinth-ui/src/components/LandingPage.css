@@ -1,0 +1,69 @@
+/* src/components/LandingPage.css */
+
+.landing-page {
+  background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), /* Adds a semi-transparent black overlay */
+    url('/public/images/TopBackground.webp'); /* Path to your background image */
+  background-size: cover; /* Ensures the background covers the entire element */
+  background-position: center; /* Centers the background image */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+  min-height: 100vh; /* Ensures the landing page covers at least the full viewport height */
+  padding-bottom: 40px; /* Adds some padding at the bottom for additional space */
+  overflow-y: auto; /* Allows for vertical scrolling if content overflows */
+  color: #f0ebeb; /* Global text color for visibility against the dark background */
+}
+
+.jumbotron {
+  background-color: transparent;
+  border-radius: 8px;
+  margin-bottom: 30px;
+  padding: 2rem 2rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0);
+}
+
+.card {
+  background-color: transparent !important; /* Ensure the card background is transparent */
+  border: none; /* Removes the border around the card */
+  box-shadow: none; /* Removes the shadow around the card */
+}
+
+.card-body {
+  padding: 0; /* Remove padding */
+  background-color: transparent !important; /* Ensure card-body background is transparent */
+}
+
+.card-title {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  background-color: transparent;
+  color: #f0ebeb; /* Light text color for readability */
+}
+
+.blockquote {
+  font-size: 1.25rem;
+  font-style: italic;
+  color: #a2a2a2;
+  margin-top: 40px;
+}
+
+.game-description {
+  font-size: 1.4rem;
+  line-height: 1.6;
+  color: #a2a2a2;
+  padding: 20px;
+  background-color: rgba(15, 16, 16, 0.6); /* Slightly transparent dark background */
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+/* Styling for welcome message */
+.welcome-message {
+  margin-top: 40px;
+  padding: 20px;
+  background-color:  transparent; /* Dark semi-transparent background */
+  color: #f0ebeb; /* Light text color for readability */
+  font-size: 1.5rem; /* Larger font size */
+  font-weight: bold; /* Bold font */
+  text-align: center; /* Centered text */
+  border-radius: 8px; /* Rounded corners */
+}

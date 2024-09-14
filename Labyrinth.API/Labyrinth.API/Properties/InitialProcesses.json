@@ -1,0 +1,88 @@
+[
+  {
+    "_id": { "$oid": "64f4a2a299b2b59e9f2a1e11" },
+    "name": "User Registration Review",
+    "status": "NotStarted",
+    "createdDate": "2024-08-25T12:34:56Z",
+    "modifiedDate": "2024-08-25T12:34:56Z",
+    "steps": [
+      {
+        "stepId": { "$oid": "64f4a2a299b2b59e9f2a1e12" },
+        "description": "Initial Registration Submission",
+        "status": "NotStarted",
+        "assignedTo": "User",
+        "outputData": "Registration submitted by user.",
+        "choices": [
+          {
+            "choiceId": { "$oid": "64f4a2a299b2b59e9f2a1e13" },
+            "condition": "Submission complete",
+            "nextStepId": { "$oid": "64f4a2a299b2b59e9f2a1e14" }
+          }
+        ]
+      },
+      {
+        "stepId": { "$oid": "64f4a2a299b2b59e9f2a1e14" },
+        "description": "Admin Review",
+        "status": "NotStarted",
+        "assignedTo": "Admin",
+        "outputData": "Admin reviews registration details.",
+        "choices": [
+          {
+            "choiceId": { "$oid": "64f4a2a299b2b59e9f2a1e15" },
+            "condition": "Registration approved",
+            "nextStepId": { "$oid": "64f4a2a299b2b59e9f2a1e16" }
+          },
+          {
+            "choiceId": { "$oid": "64f4a2a299b2b59e9f2a1e17" },
+            "condition": "Registration rejected",
+            "nextStepId": { "$oid": "64f4a2a299b2b59e9f2a1e18" }
+          }
+        ]
+      },
+      {
+        "stepId": { "$oid": "64f4a2a299b2b59e9f2a1e16" },
+        "description": "Send Welcome Email",
+        "status": "NotStarted",
+        "assignedTo": "System",
+        "outputData": "Welcome email sent to user.",
+        "choices": []
+      },
+      {
+        "stepId": { "$oid": "64f4a2a299b2b59e9f2a1e18" },
+        "description": "Notify User of Rejection",
+        "status": "NotStarted",
+        "assignedTo": "System",
+        "outputData": "Rejection email sent to user with reasons.",
+        "choices": []
+      }
+    ],
+    "businessRules": [
+      {
+        "ruleId": { "$oid": "64f4a2a299b2b59e9f2a1e19" },
+        "description": "Verify User Age",
+        "criteria": "User age must be 18 or older.",
+        "action": "Reject if under 18."
+      },
+      {
+        "ruleId": { "$oid": "64f4a2a299b2b59e9f2a1e1a" },
+        "description": "Check for Duplicate Registration",
+        "criteria": "Email address must not already be registered.",
+        "action": "Reject if email exists."
+      }
+    ],
+    "actors": [
+      {
+        "actorId": { "$oid": "64f4a2a299b2b59e9f2a1e1b" },
+        "role": "Admin",
+        "stepId": { "$oid": "64f4a2a299b2b59e9f2a1e14" }
+      },
+      {
+        "actorId": { "$oid": "64f4a2a299b2b59e9f2a1e1c" },
+        "role": "User",
+        "stepId": { "$oid": "64f4a2a299b2b59e9f2a1e12" }
+      }
+    ]
+  }
+]
+
+

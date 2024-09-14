@@ -1,0 +1,51 @@
+/* src/components/Home.css */
+
+.home-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two columns of equal width */
+    grid-template-rows: 1fr 1fr; /* Two rows of equal height */
+    gap: 20px; /* Spacing between grid items */
+    width: 100%;
+    height: 100%;
+  }
+  
+  .grid-item {
+    border: 2px solid #ccc; /* Light grey border around each section */
+    padding: 15px;
+    box-sizing: border-box;
+    overflow: auto; /* Ensures content is scrollable if needed */
+    border-radius: 8px; /* Rounded corners */
+  }
+  
+  .upper-left {
+    background-color: #f0f8ff; /* Light blue for visual differentiation */
+  }
+  
+  .upper-right {
+    background-color: #f5f5f5; /* Light grey for visual differentiation */
+  }
+  
+  .lower-left {
+    background-color: #fff0f5; /* Light pink for visual differentiation */
+  }
+  
+  .lower-right {
+    background-color: #f0fff0; /* Light green for visual differentiation */
+  }
+  
+  @media (max-width: 768px) {
+    .grid {
+      grid-template-columns: 1fr; /* Stacks items vertically on smaller screens */
+      grid-template-rows: auto; /* Auto rows for responsive height */
+    }
+  }
+  

@@ -6,8 +6,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="Library.fs" />
     <Compile Include="TemplateParser.fs" />
+    <Compile Include="AST.fs" />
+    <Compile Include="Parsers.fs" />
+    <Compile Include="Compiler.fs" />
+    <Compile Include="Debug.fs" />
   </ItemGroup>
 
   <ItemGroup>

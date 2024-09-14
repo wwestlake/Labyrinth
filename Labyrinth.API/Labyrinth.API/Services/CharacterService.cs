@@ -84,5 +84,11 @@ namespace Labyrinth.API.Services
         {
             // Implement logic to notify admins, e.g., sending an email or logging the event
         }
+
+        public async Task<bool> IsCharacterNameUniqueAsync(string name)
+        {
+            var character = await _charactersCollection.Find(c => c.Name == name).FirstOrDefaultAsync();
+            return character == null;
+        }
     }
 }

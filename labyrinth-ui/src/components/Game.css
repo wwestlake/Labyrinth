@@ -1,0 +1,65 @@
+/* src/components/Game.css */
+
+/* Ensure the entire container uses flexbox for layout */
+.game-container {
+    display: flex;
+    height: 100vh; /* Use full height for layout consistency */
+  }
+  
+  /* Sidebar styling */
+  .sidebar {
+    width: 200px;
+    background-color: #000; /* Black background */
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Adds space between menu items */
+    height: 100vh; /* Full height to create a scrollable area */
+    overflow-y: auto; /* Enables vertical scrolling */
+  }
+  
+  /* Menu item styling */
+  .menu-item,
+  .submenu-item {
+    cursor: pointer;
+    padding: 10px;
+    text-decoration: none;
+    color: #fff; /* White text */
+    display: block;
+    transition: background-color 0.2s ease, color 0.2s ease; /* Smooth transition */
+  }
+  
+  .menu-item:hover,
+  .submenu-item:hover {
+    background-color: #333; /* Dark gray background on hover */
+  }
+  
+  /* Active menu item styling */
+  .submenu-item.active {
+    font-weight: bold;
+    color: #007bff; /* Change this to your preferred active color */
+    background-color: #333; /* Dark gray background for active items */
+  }
+  
+  /* Submenu styling */
+  .submenu {
+    margin-left: 10px; /* Indent submenu items */
+    display: flex;
+    flex-direction: column;
+    gap: 5px; /* Adds space between submenu items */
+  }
+  
+  /* Content area styling */
+  .content-area {
+    flex: 1; /* Take remaining space */
+    padding: 20px;
+    overflow-y: auto; /* Optional: Enables scrolling in content area if needed */
+  }
+  
+  /* Active menu item styling */
+.menu-item.active,
+.submenu-item.active {
+  font-weight: bold;
+  color: #007bff; /* Change this to your preferred active color */
+  background-color: #333; /* Dark gray background for active items */
+}

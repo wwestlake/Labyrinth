@@ -1,0 +1,35 @@
+/* src/components/PluginList.css */
+
+/* Ensure the plugin list table is responsive */
+.plugin-list {
+    padding: 20px;
+  }
+  
+  .plugin-list h4 {
+    margin-bottom: 20px;
+  }
+  
+  /* Adjust table to use the full width */
+  .plugin-list table {
+    width: 100%;
+  }
+  
+  /* Action icons in a horizontal row */
+  .plugin-list .action-icons {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px; /* Add some space between icons */
+  }
+  
+  .plugin-list .action-icons svg {
+    cursor: pointer;
+    font-size: 1.5rem; /* Adjust size of icons */
+    transition: color 0.3s ease;
+  }
+  
+  /* Hover effect for the icons */
+  .plugin-list .action-icons svg:hover {
+    color: #007bff; /* You can change this color if needed */
+  }
+  

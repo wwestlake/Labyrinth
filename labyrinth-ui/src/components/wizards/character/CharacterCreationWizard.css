@@ -1,0 +1,18 @@
+.character-creation-wizard {
+    max-width: 600px; /* Set a max width for the wizard to prevent excessive stretching */
+    margin: 0 auto; /* Center the wizard on the page */
+    padding: 20px; /* Add some padding for spacing */
+  }
+  
+  .steps-action {
+    display: flex; /* Use flexbox for button alignment */
+    justify-content: flex-end; /* Align buttons to the right */
+    gap: 10px; /* Space between buttons */
+    margin-top: 20px; /* Add some space above the button container */
+  }
+  
+  .steps-action button {
+    flex: none; /* Prevent buttons from stretching */
+    white-space: nowrap; /* Prevent button text from wrapping */
+  }
+  

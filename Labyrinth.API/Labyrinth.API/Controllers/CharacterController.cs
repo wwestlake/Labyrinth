@@ -174,5 +174,13 @@ namespace Labyrinth.API.Controllers
         {
             // Implement logic to notify admins, e.g., sending an email or logging the event
         }
+
+        // In CharacterController.cs
+        [HttpGet("check-name-unique")]
+        public async Task<IActionResult> CheckNameUnique([FromQuery] string name)
+        {
+            var isUnique = await _characterService.IsCharacterNameUniqueAsync(name);
+            return Ok(new { isUnique });
+        }
     }
 }
